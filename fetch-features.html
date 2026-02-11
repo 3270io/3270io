@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch 3270.io Features</title>
+</head>
+<body>
+    <div id="output">Fetching...</div>
+    <script>
+        async function fetchFeatures() {
+            try {
+                const response = await fetch('https://3270.io/');
+                const html = await response.text();
+                
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                const output = document.getElementById('output');
+                output.innerHTML = '<h2>Full HTML Content:</h2><pre>' + 
+                    html.substring(0, 5000).replace(/</g, '&lt;').replace(/>/g, '&gt;') + 
+                    '</pre>';
+                
+                console.log('Full HTML:', html);
+            } catch (error) {
+                document.getElementById('output').innerHTML = 'Error: ' + error.message;
+                console.error('Error:', error);
+            }
+        }
+        
+        fetchFeatures();
+    </script>
+</body>
+</html>
