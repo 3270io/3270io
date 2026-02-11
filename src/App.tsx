@@ -230,8 +230,8 @@ function App() {
                   whileHover={{ scale: 1.02 }}
                   className="h-full"
                 >
-                  <Card className="h-full border-2 border-primary/40 bg-card card-glow hover:card-glow-hover transition-all duration-300 grid grid-rows-[auto_1fr_auto]">
-                    <CardHeader>
+                  <Card className="h-full border-2 border-primary/40 bg-card card-glow hover:card-glow-hover transition-all duration-300 flex flex-col">
+                    <CardHeader className="flex-none">
                       <div className="flex items-start justify-between mb-2">
                         <Terminal size={32} weight="bold" className="text-primary terminal-glow" />
                         <div className="flex items-center gap-2">
@@ -256,11 +256,11 @@ function App() {
                       <CardTitle className="text-2xl md:text-3xl font-bold tracking-wide uppercase terminal-glow-intense text-primary">
                         {product.name}
                       </CardTitle>
-                      <CardDescription className="text-card-foreground/80 text-sm md:text-base font-mono leading-relaxed min-h-[4rem]">
+                      <CardDescription className="text-card-foreground/80 text-sm md:text-base font-mono leading-relaxed h-[6.5rem]">
                         {product.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="flex flex-col">
+                    <CardContent className="flex-1 flex flex-col">
                       <div className="mb-6">
                         <div className="text-xs text-muted-foreground font-mono mb-3 tracking-wide">
                           {'>'} KEY FEATURES:
@@ -275,7 +275,7 @@ function App() {
                         </ul>
                       </div>
                     </CardContent>
-                    <CardContent className="pt-0">
+                    <CardContent className="pt-0 flex-none">
                       <a 
                         href={product.docsUrl}
                         target="_blank"
