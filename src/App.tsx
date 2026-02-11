@@ -77,12 +77,12 @@ function App() {
       docsUrl: "https://3270web.3270.io",
       githubUrl: "https://github.com/3270io/3270Web",
       features: [
-        "Web UI for interactive 3270 terminal sessions",
-        "Embedded s3270 binary support for Windows environments",
+        "Web UI for interactive 3270 terminal sessions with detailed logging",
+        "Virtual keyboard support for comprehensive terminal interaction",
+        "Full 3270 terminal settings to support any mainframe backend session",
         "Record sessions to workflow.json compatible with 3270Connect",
         "Load & playback workflow.json for automated session replay",
-        "Docker image with GHCR workflow for containerized deployment",
-        "Windows build script for native Windows support"
+        "Docker image with GHCR workflow for containerized deployment"
       ]
     }
   ]
