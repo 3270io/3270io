@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Terminal, ArrowRight, Book, FastForward } from "@phosphor-icons/react"
+import { Terminal, ArrowRight, Book, FastForward, GithubLogo } from "@phosphor-icons/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 
@@ -59,19 +59,23 @@ function App() {
   const products = [
     {
       name: "3270Connect",
-      description: "Traditional mainframe connectivity solution providing reliable TN3270 terminal emulation and secure access to IBM mainframe systems.",
+      description: "Open-source web dashboard, API and CLI for functional and non-functional testing of Mainframe 3270 Online applications.",
       docsUrl: "https://3270connect.3270.io",
+      githubUrl: "https://github.com/3270io/3270Connect",
       features: [
-        "TN3270/TN3270E Protocol Support",
-        "SSL/TLS Encryption",
-        "Session Management",
-        "Scripting & Automation"
+        "Automated workflow configuration files",
+        "Terminal screen state capture for documentation",
+        "Parallel workflow execution for efficiency",
+        "Headless mode for CI/CD integration",
+        "Verbose output & failure-only logging",
+        "API server for load testing & automation"
       ]
     },
     {
       name: "3270Web",
-      description: "Modern web-based mainframe interface bringing 3270 terminal access to any browser with zero installation requirements.",
+      description: "Open-source modern web-based mainframe interface bringing 3270 terminal access to any browser with zero installation requirements.",
       docsUrl: "https://3270web.3270.io",
+      githubUrl: "https://github.com/3270io/3270Web",
       features: [
         "Browser-Based Access",
         "Modern UI/UX",
@@ -228,8 +232,23 @@ function App() {
                     <CardHeader>
                       <div className="flex items-start justify-between mb-2">
                         <Terminal size={32} weight="bold" className="text-primary terminal-glow" />
-                        <div className="text-xs text-muted-foreground font-mono">
-                          [ACTIVE]
+                        <div className="flex items-center gap-2">
+                          <div className="text-xs text-accent/80 font-mono tracking-wider">
+                            [OPEN SOURCE]
+                          </div>
+                          <a 
+                            href={product.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group"
+                            aria-label={`View ${product.name} on GitHub`}
+                          >
+                            <GithubLogo 
+                              size={24} 
+                              weight="bold" 
+                              className="text-primary terminal-glow hover:text-accent hover:amber-glow transition-all duration-300 hover:scale-110" 
+                            />
+                          </a>
                         </div>
                       </div>
                       <CardTitle className="text-2xl md:text-3xl font-bold tracking-wide uppercase terminal-glow-intense text-primary">

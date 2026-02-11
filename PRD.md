@@ -13,11 +13,11 @@ This is a focused landing page that presents two products with clear navigation 
 ## Essential Features
 
 **Product Card Display**
-- Functionality: Display cards for 3270Connect and 3270Web with descriptions and documentation links
-- Purpose: Give users immediate understanding of both products and direct access to their documentation
+- Functionality: Display cards for 3270Connect and 3270Web with descriptions, documentation links, and GitHub repository links
+- Purpose: Give users immediate understanding of both open-source products and direct access to their documentation and source code
 - Trigger: Page load
-- Progression: Page loads → Products displayed in grid/cards → User reads descriptions → User clicks documentation link → Navigates to https://3270connect.3270.io or https://3270web.3270.io
-- Success criteria: Both products clearly visible with working links to their respective documentation sites
+- Progression: Page loads → Products displayed in grid/cards → User reads descriptions → User clicks documentation link (navigates to https://3270connect.3270.io or https://3270web.3270.io) OR clicks GitHub icon (navigates to repository)
+- Success criteria: Both products clearly visible with working links to their respective documentation sites and GitHub repositories, with clear "OPEN SOURCE" designation
 
 **Mainframe Terminal Aesthetic**
 - Functionality: Apply authentic IBM 3270 terminal styling throughout the interface
@@ -98,6 +98,7 @@ Animations should enhance the CRT terminal aesthetic with subtle vintage computi
   
 - **Icon Selection**: 
   - Terminal/Monitor icons for product cards
+  - GithubLogo for repository links with mainframe terminal glow effects
   - ArrowRight for documentation links suggesting forward navigation
   - Book or FileText for documentation indicators
   - Code/Terminal for technical emphasis
