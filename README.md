@@ -36,6 +36,15 @@ Preview production build:
 npm run preview
 ```
 
+## Deploy to GitHub Pages
+
+This repo includes an automated workflow at `.github/workflows/deploy-pages.yml` that builds and deploys `dist/` to GitHub Pages.
+
+Required GitHub setting:
+- Repository `Settings -> Pages -> Build and deployment -> Source`: set to `GitHub Actions`
+
+The workflow runs on pushes to `main` and manually via `workflow_dispatch`.
+
 ## Image Modal Content
 
 Product modal images are configured in `src/lib/dashboard-image.ts`.
