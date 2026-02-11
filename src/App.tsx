@@ -220,7 +220,7 @@ function App() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:items-start">
               {products.map((product, index) => (
                 <motion.div
                   key={product.name}
@@ -230,7 +230,7 @@ function App() {
                   whileHover={{ scale: 1.02 }}
                   className="h-full"
                 >
-                  <Card className="h-full border-2 border-primary/40 bg-card card-glow hover:card-glow-hover transition-all duration-300 flex flex-col">
+                  <Card className="h-full border-2 border-primary/40 bg-card card-glow hover:card-glow-hover transition-all duration-300 grid grid-rows-[auto_1fr_auto]">
                     <CardHeader>
                       <div className="flex items-start justify-between mb-2">
                         <Terminal size={32} weight="bold" className="text-primary terminal-glow" />
@@ -256,12 +256,12 @@ function App() {
                       <CardTitle className="text-2xl md:text-3xl font-bold tracking-wide uppercase terminal-glow-intense text-primary">
                         {product.name}
                       </CardTitle>
-                      <CardDescription className="text-card-foreground/80 text-sm md:text-base font-mono leading-relaxed">
+                      <CardDescription className="text-card-foreground/80 text-sm md:text-base font-mono leading-relaxed min-h-[4rem]">
                         {product.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="flex-1 flex flex-col justify-between">
-                      <div className="mb-6 flex-1">
+                    <CardContent className="flex flex-col">
+                      <div className="mb-6">
                         <div className="text-xs text-muted-foreground font-mono mb-3 tracking-wide">
                           {'>'} KEY FEATURES:
                         </div>
@@ -274,6 +274,8 @@ function App() {
                           ))}
                         </ul>
                       </div>
+                    </CardContent>
+                    <CardContent className="pt-0">
                       <a 
                         href={product.docsUrl}
                         target="_blank"
