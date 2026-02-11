@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Terminal, ArrowRight, Book, FastForward, GithubLogo, Image as ImageIcon, CaretLeft, CaretRight } from "@phosphor-icons/react"
+import { Terminal, ArrowRight, Book, FastForward, GithubLogo, Image as ImageIcon, CaretLeft, CaretRight, ArrowsOut, ArrowsIn } from "@phosphor-icons/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { product3270ConnectImages, product3270WebImages } from "@/lib/dashboard-image"
@@ -12,6 +12,7 @@ function App() {
   const [showImages, setShowImages] = useState(false)
   const [currentProduct, setCurrentProduct] = useState<"3270Connect" | "3270Web" | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isImageMaximized, setIsImageMaximized] = useState(false)
 
   const bootSequence = [
     "SYSTEM INITIALIZATION...",
@@ -97,7 +98,15 @@ function App() {
   const handleShowImages = (productName: "3270Connect" | "3270Web") => {
     setCurrentProduct(productName)
     setCurrentImageIndex(0)
+    setIsImageMaximized(false)
     setShowImages(true)
+  }
+
+  const handleImagesOpenChange = (open: boolean) => {
+    setShowImages(open)
+    if (!open) {
+      setIsImageMaximized(false)
+    }
   }
 
   const currentImages = currentProduct === "3270Connect" ? product3270ConnectImages : product3270WebImages
@@ -368,21 +377,30 @@ function App() {
         )}
       </AnimatePresence>
 
-      <Dialog open={showImages} onOpenChange={setShowImages}>
-        <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 border-2 border-primary/40 bg-card overflow-hidden">
-          <DialogHeader className="p-6 border-b-2 border-primary/30">
+      <Dialog open={showImages} onOpenChange={handleImagesOpenChange}>
+        <DialogContent className={`${isImageMaximized ? "w-screen h-screen max-w-none rounded-none border-0" : "w-[98vw] h-[95vh] max-w-[1600px]"} p-0 border-2 border-primary/40 bg-card overflow-hidden`}>
+          <DialogHeader className="p-6 border-b-2 border-primary/30 flex flex-row items-center justify-between space-y-0">
             <DialogTitle className="text-2xl font-bold tracking-wide uppercase terminal-glow-intense text-primary font-mono flex items-center gap-3">
               <ImageIcon size={32} weight="bold" className="text-primary terminal-glow" />
               {currentProduct} IMAGES
             </DialogTitle>
+            <Button
+              type="button"
+              onClick={() => setIsImageMaximized((prev) => !prev)}
+              className="bg-transparent border-2 border-accent text-accent hover:bg-accent/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold tracking-widest uppercase"
+              size="sm"
+            >
+              {isImageMaximized ? <ArrowsIn size={18} weight="bold" className="mr-2" /> : <ArrowsOut size={18} weight="bold" className="mr-2" />}
+              {isImageMaximized ? "[ RESTORE ]" : "[ MAXIMIZE ]"}
+            </Button>
           </DialogHeader>
-          <div className="overflow-auto h-[calc(95vh-80px)] p-6 relative">
+          <div className={`overflow-auto ${isImageMaximized ? "h-[calc(100vh-92px)] p-2 md:p-4" : "h-[calc(95vh-92px)] p-4 md:p-6"} relative`}>
             <div className="w-full">
               <div className="relative">
                 <img 
                   src={currentImages[currentImageIndex].url}
                   alt={currentImages[currentImageIndex].alt}
-                  className="w-full h-auto rounded border-2 border-primary/30 card-glow"
+                  className={`w-full rounded border-2 border-primary/30 card-glow ${isImageMaximized ? "h-[calc(100vh-220px)] object-contain" : "h-auto object-cover"}`}
                   loading="lazy"
                 />
                 {currentImages.length > 1 && (
