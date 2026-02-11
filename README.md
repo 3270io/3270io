@@ -1,23 +1,56 @@
-# ✨ Welcome to Your Spark Template!
-You've just launched your brand-new Spark Template Codespace — everything’s fired up and ready for you to explore, build, and create with Spark!
+# 3270.io Website
 
-This template is your blank canvas. It comes with a minimal setup to help you get started quickly with Spark development.
+Landing page for 3270.io showcasing:
+- `3270Connect`
+- `3270Web`
 
-🚀 What's Inside?
-- A clean, minimal Spark environment
-- Pre-configured for local development
-- Ready to scale with your ideas
-  
-🧠 What Can You Do?
+Built with React, TypeScript, Vite, and Tailwind.
 
-Right now, this is just a starting point — the perfect place to begin building and testing your Spark applications.
+## Development
 
-🧹 Just Exploring?
-No problem! If you were just checking things out and don’t need to keep this code:
+Prerequisites:
+- Node.js 20+
+- npm
 
-- Simply delete your Spark.
-- Everything will be cleaned up — no traces left behind.
+Install dependencies:
 
-📄 License For Spark Template Resources 
+```bash
+npm install
+```
 
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
+Start the dev server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview production build:
+
+```bash
+npm run preview
+```
+
+## Image Modal Content
+
+Product modal images are configured in `src/lib/dashboard-image.ts`.
+
+- `3270Connect` modal images come from `src/assets/images/3270Connect/`
+- `3270Web` modal images come from `src/assets/images/3270Web/`
+
+To update modal screenshots, replace files in those folders and adjust `src/lib/dashboard-image.ts` if filenames change.
+
+## Key Files
+
+- `src/App.tsx`: Main landing page and modal UI
+- `src/lib/dashboard-image.ts`: Image list definitions for each product modal
+- `src/assets/images/`: Product screenshot assets
+
+## License
+
+MIT. See `LICENSE`.
