@@ -261,7 +261,7 @@ function App() {
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="flex-1 flex flex-col justify-between">
-                      <div className="mb-6">
+                      <div className="mb-6 flex-1">
                         <div className="text-xs text-muted-foreground font-mono mb-3 tracking-wide">
                           {'>'} KEY FEATURES:
                         </div>
