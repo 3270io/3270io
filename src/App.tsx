@@ -200,7 +200,7 @@ function App() {
               {'>'} OPEN SOURCE MAINFRAME CONNECTIVITY SOLUTIONS
             </p>
             <div className="mt-4 text-sm text-muted-foreground font-mono">
-              [SYSTEM READY] © 2024 - ALL SYSTEMS OPERATIONAL
+              [SYSTEM READY] © Since 2023 - ALL SYSTEMS OPERATIONAL
             </div>
           </motion.div>
         </header>
@@ -261,7 +261,7 @@ function App() {
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="flex-1 flex flex-col">
-                      <div className="mb-6">
+                      <div className="mb-6 pt-4">
                         <div className="text-xs text-muted-foreground font-mono mb-3 tracking-wide">
                           {'>'} KEY FEATURES:
                         </div>
@@ -308,7 +308,7 @@ function App() {
                   ┌────────────────────────────────────────────────────────────┐
                 </p>
                 <p className="text-sm text-primary/70 font-mono">
-                  IBM 3270 COMPATIBLE TERMINAL EMULATION & WEB SOLUTIONS
+                  Hammering and Connecting to 3270 Terminals since 2023
                 </p>
                 <p className="text-sm text-muted-foreground font-mono">
                   └────────────────────────────────────────────────────────────┘
