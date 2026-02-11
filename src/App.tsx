@@ -373,27 +373,27 @@ function App() {
       </AnimatePresence>
 
       <Dialog open={showImages} onOpenChange={handleImagesOpenChange}>
-        <DialogContent className="w-[98vw] h-[95vh] max-w-[1600px] sm:max-w-[1600px] p-0 border-2 border-primary/40 bg-card overflow-hidden">
-          <DialogHeader className="p-6 border-b-2 border-primary/30 flex flex-row items-center justify-between space-y-0">
-            <DialogTitle className="text-2xl font-bold tracking-wide uppercase terminal-glow-intense text-primary font-mono flex items-center gap-3">
-              <ImageIcon size={32} weight="bold" className="text-primary terminal-glow" />
+        <DialogContent className="w-[96vw] sm:w-[98vw] h-[92svh] sm:h-[95vh] max-w-[1600px] max-h-[95svh] sm:max-h-[95vh] p-0 border-2 border-primary/40 bg-card overflow-hidden flex flex-col">
+          <DialogHeader className="p-4 sm:p-6 border-b-2 border-primary/30 flex flex-row flex-wrap items-center justify-between gap-2 sm:gap-3 space-y-0 shrink-0">
+            <DialogTitle className="text-lg sm:text-2xl font-bold tracking-wide uppercase terminal-glow-intense text-primary font-mono flex items-center gap-2 sm:gap-3 flex-wrap">
+              <ImageIcon weight="bold" className="text-primary terminal-glow size-7 sm:size-8" />
               {currentProduct} IMAGES
             </DialogTitle>
           </DialogHeader>
-          <div className="overflow-auto h-[calc(95vh-92px)] p-4 md:p-6 relative">
+          <div className="flex-1 min-h-0 overflow-auto p-4 sm:p-6 relative">
             <div className="w-full">
               <div className="relative">
                 <img 
                   src={currentImages[currentImageIndex].url}
                   alt={currentImages[currentImageIndex].alt}
-                  className="w-full h-auto object-cover rounded border-2 border-primary/30 card-glow"
+                  className="w-full h-auto max-h-[60svh] sm:max-h-none object-contain sm:object-cover rounded border-2 border-primary/30 card-glow"
                   loading="lazy"
                 />
                 {currentImages.length > 1 && (
                   <>
                     <Button
                       onClick={handlePrevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
+                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
                       size="icon"
                       aria-label="Previous image"
                     >
@@ -401,7 +401,7 @@ function App() {
                     </Button>
                     <Button
                       onClick={handleNextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
+                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
                       size="icon"
                       aria-label="Next image"
                     >
