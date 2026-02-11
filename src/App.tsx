@@ -1,9 +1,61 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Terminal, ArrowRight, Book } from "@phosphor-icons/react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react"
 
 function App() {
+  const [bootComplete, setBootComplete] = useState(false)
+  const [currentLine, setCurrentLine] = useState(0)
+
+  const bootSequence = [
+    "SYSTEM INITIALIZATION...",
+    "LOADING CORE MODULES...",
+    "CONNECTING TO MAINFRAME...",
+    "ESTABLISHING TN3270 PROTOCOL...",
+    "VERIFYING SSL/TLS CERTIFICATES...",
+    "LOADING 3270CONNECT MODULE... [OK]",
+    "LOADING 3270WEB MODULE... [OK]",
+    "INITIALIZING SESSION MANAGER...",
+    "SYSTEM READY - ALL SERVICES OPERATIONAL",
+  ]
+
+  useEffect(() => {
+    if (currentLine < bootSequence.length) {
+      const timer = setTimeout(() => {
+        setCurrentLine(currentLine + 1)
+      }, 350)
+      return () => clearTimeout(timer)
+    } else {
+      const finalTimer = setTimeout(() => {
+        setBootComplete(true)
+      }, 800)
+      return () => clearTimeout(finalTimer)
+    }
+  }, [currentLine, bootSequence.length])
+
+  useEffect(() => {
+    const handleKeyPress = () => {
+      if (currentLine >= bootSequence.length) {
+        setBootComplete(true)
+      }
+    }
+
+    const handleClick = () => {
+      if (currentLine >= bootSequence.length) {
+        setBootComplete(true)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    window.addEventListener('click', handleClick)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress)
+      window.removeEventListener('click', handleClick)
+    }
+  }, [currentLine, bootSequence.length])
+
   const products = [
     {
       name: "3270Connect",
@@ -31,7 +83,81 @@ function App() {
 
   return (
     <div className="min-h-screen scanlines relative">
-      <div className="relative z-10">
+      <AnimatePresence mode="wait">
+        {!bootComplete ? (
+          <motion.div
+            key="boot"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-background flex items-center justify-center p-6"
+          >
+            <div className="w-full max-w-3xl">
+              <div className="flex items-center gap-4 mb-8">
+                <Terminal size={64} weight="bold" className="text-primary terminal-glow-intense animate-pulse" />
+                <div>
+                  <h1 className="text-3xl md:text-4xl font-bold tracking-wide uppercase terminal-glow-intense">
+                    3270.IO
+                  </h1>
+                  <p className="text-sm text-primary/70 terminal-glow font-mono">
+                    MAINFRAME CONNECTIVITY SYSTEM
+                  </p>
+                </div>
+              </div>
+              
+              <div className="border-2 border-primary/40 bg-card/50 p-6 md:p-8 card-glow font-mono">
+                <div className="space-y-3">
+                  {bootSequence.slice(0, currentLine).map((line, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex items-start gap-3"
+                    >
+                      <span className="text-accent terminal-glow shrink-0">{'>'}</span>
+                      <span className="text-primary/90 terminal-glow text-sm md:text-base">
+                        {line}
+                      </span>
+                    </motion.div>
+                  ))}
+                  {currentLine < bootSequence.length && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 1, 0] }}
+                      transition={{ duration: 0.8, repeat: Infinity }}
+                      className="flex items-start gap-3"
+                    >
+                      <span className="text-accent terminal-glow">{'>'}</span>
+                      <span className="text-primary terminal-glow-intense">█</span>
+                    </motion.div>
+                  )}
+                </div>
+              </div>
+              
+              {currentLine >= bootSequence.length && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="mt-6 text-center"
+                >
+                  <p className="text-accent terminal-glow font-mono text-sm">
+                    [PRESS ANY KEY TO CONTINUE]
+                  </p>
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="main"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="relative z-10"
+          >
         <header className="border-b-2 border-primary/30 py-8 px-6 md:px-12 lg:px-24">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
@@ -162,7 +288,9 @@ function App() {
             </div>
           </div>
         </footer>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
