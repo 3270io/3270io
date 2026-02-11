@@ -378,7 +378,7 @@ function App() {
       </AnimatePresence>
 
       <Dialog open={showImages} onOpenChange={handleImagesOpenChange}>
-        <DialogContent className={`${isImageMaximized ? "w-screen h-screen max-w-none rounded-none border-0" : "w-[98vw] h-[95vh] max-w-[1600px]"} p-0 border-2 border-primary/40 bg-card overflow-hidden`}>
+        <DialogContent className={`${isImageMaximized ? "w-screen h-screen max-w-none sm:max-w-none rounded-none border-0" : "w-[98vw] h-[95vh] max-w-[1600px] sm:max-w-[1600px]"} p-0 border-2 border-primary/40 bg-card overflow-hidden`}>
           <DialogHeader className="p-6 border-b-2 border-primary/30 flex flex-row items-center justify-between space-y-0">
             <DialogTitle className="text-2xl font-bold tracking-wide uppercase terminal-glow-intense text-primary font-mono flex items-center gap-3">
               <ImageIcon size={32} weight="bold" className="text-primary terminal-glow" />
