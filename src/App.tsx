@@ -59,16 +59,16 @@ function App() {
   const products = [
     {
       name: "3270Connect",
-      description: "Open-source web dashboard, API and CLI for functional and non-functional testing of Mainframe 3270 Online applications.",
+      description: "Repeatable scripted workflows to replicate human 3270 online integration with unlimited scale. Web dashboard, API and CLI for functional and non-functional testing of Mainframe 3270 Online applications.",
       docsUrl: "https://3270connect.3270.io",
       githubUrl: "https://github.com/3270io/3270Connect",
       features: [
-        "Automated workflow configuration files",
-        "Terminal screen state capture for documentation",
-        "Parallel workflow execution for efficiency",
-        "Headless mode for CI/CD integration",
-        "Verbose output & failure-only logging",
-        "API server for load testing & automation"
+        "Define & execute automated workflows via configuration files",
+        "Capture 3270 terminal screen state for documentation & troubleshooting",
+        "Execute multiple workflows in parallel for optimized testing",
+        "Headless mode for CI/CD & background automation",
+        "Verbose output mode with failure-only logging for diagnostics",
+        "API server enabling load testing & advanced automation scenarios"
       ]
     },
     {
@@ -77,12 +77,12 @@ function App() {
       docsUrl: "https://3270web.3270.io",
       githubUrl: "https://github.com/3270io/3270Web",
       features: [
-        "Web UI for 3270 sessions",
-        "Embedded s3270 binary support (Windows)",
-        "Record sessions to workflow.json format",
-        "Load workflow.json and play it back",
-        "Docker image and GHCR workflow",
-        "Windows build script"
+        "Web UI for interactive 3270 terminal sessions",
+        "Embedded s3270 binary support for Windows environments",
+        "Record sessions to workflow.json compatible with 3270Connect",
+        "Load & playback workflow.json for automated session replay",
+        "Docker image with GHCR workflow for containerized deployment",
+        "Windows build script for native Windows support"
       ]
     }
   ]
@@ -107,7 +107,7 @@ function App() {
                     3270.IO
                   </h1>
                   <p className="text-sm text-primary/70 terminal-glow font-mono">
-                    MAINFRAME CONNECTIVITY SYSTEM
+                    OPEN SOURCE MAINFRAME CONNECTIVITY SYSTEM
                   </p>
                 </div>
               </div>
@@ -197,7 +197,7 @@ function App() {
               </h1>
             </div>
             <p className="text-lg md:text-xl text-primary/80 terminal-glow font-medium tracking-wide">
-              {'>'} MAINFRAME CONNECTIVITY SOLUTIONS
+              {'>'} OPEN SOURCE MAINFRAME CONNECTIVITY SOLUTIONS
             </p>
             <div className="mt-4 text-sm text-muted-foreground font-mono">
               [SYSTEM READY] © 2024 - ALL SYSTEMS OPERATIONAL
