@@ -215,7 +215,7 @@ function App() {
             >
               <div className="border-2 border-primary/30 p-4 mb-8 card-glow">
                 <p className="text-primary terminal-glow font-mono text-sm md:text-base">
-                  SYSTEM MESSAGE: Select a product to access technical documentation and implementation guides.
+                  SYSTEM MESSAGE: Select a product to access technical documentation and usage guides.
                 </p>
               </div>
             </motion.div>
