@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Terminal, ArrowRight, Book } from "@phosphor-icons/react"
+import { Terminal, ArrowRight, Book, FastForward } from "@phosphor-icons/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 
@@ -136,18 +136,37 @@ function App() {
                 </div>
               </div>
               
-              {currentLine >= bootSequence.length && (
+              <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                {currentLine >= bootSequence.length && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="text-center md:text-left"
+                  >
+                    <p className="text-accent terminal-glow font-mono text-sm">
+                      [PRESS ANY KEY TO CONTINUE]
+                    </p>
+                  </motion.div>
+                )}
+                
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="mt-6 text-center"
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  className="ml-auto"
                 >
-                  <p className="text-accent terminal-glow font-mono text-sm">
-                    [PRESS ANY KEY TO CONTINUE]
-                  </p>
+                  <Button
+                    onClick={() => setBootComplete(true)}
+                    variant="outline"
+                    size="sm"
+                    className="border-accent/50 text-accent hover:bg-accent/10 hover:border-accent terminal-glow hover:amber-glow font-mono text-xs tracking-wider group"
+                  >
+                    <FastForward size={16} weight="bold" className="mr-2 group-hover:animate-pulse" />
+                    [ SKIP ]
+                  </Button>
                 </motion.div>
-              )}
+              </div>
             </div>
           </motion.div>
         ) : (
