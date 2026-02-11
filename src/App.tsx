@@ -1,12 +1,15 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Terminal, ArrowRight, Book, FastForward, GithubLogo } from "@phosphor-icons/react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Terminal, ArrowRight, Book, FastForward, GithubLogo, MonitorPlay } from "@phosphor-icons/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
+import { dashboardImageUrl } from "@/lib/dashboard-image"
 
 function App() {
   const [bootComplete, setBootComplete] = useState(false)
   const [currentLine, setCurrentLine] = useState(0)
+  const [showDashboard, setShowDashboard] = useState(false)
 
   const bootSequence = [
     "SYSTEM INITIALIZATION...",
@@ -276,21 +279,34 @@ function App() {
                       </div>
                     </CardContent>
                     <CardContent className="pt-0 flex-none">
-                      <a 
-                        href={product.docsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        <Button 
-                          className="w-full bg-transparent border-2 border-primary text-primary hover:bg-primary/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold tracking-widest uppercase group"
-                          size="lg"
+                      <div className="flex flex-col gap-3">
+                        <a 
+                          href={product.docsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block"
                         >
-                          <Book size={20} weight="bold" className="mr-2" />
-                          [ DOCUMENTATION ]
-                          <ArrowRight size={20} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                      </a>
+                          <Button 
+                            className="w-full bg-transparent border-2 border-primary text-primary hover:bg-primary/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold tracking-widest uppercase group"
+                            size="lg"
+                          >
+                            <Book size={20} weight="bold" className="mr-2" />
+                            [ DOCUMENTATION ]
+                            <ArrowRight size={20} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                          </Button>
+                        </a>
+                        {product.name === "3270Connect" && (
+                          <Button 
+                            onClick={() => setShowDashboard(true)}
+                            className="w-full bg-transparent border-2 border-accent text-accent hover:bg-accent/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold tracking-widest uppercase group"
+                            size="lg"
+                          >
+                            <MonitorPlay size={20} weight="bold" className="mr-2" />
+                            [ VIEW DASHBOARD ]
+                            <ArrowRight size={20} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                          </Button>
+                        )}
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -333,6 +349,30 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <Dialog open={showDashboard} onOpenChange={setShowDashboard}>
+        <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 border-2 border-primary/40 bg-card overflow-hidden">
+          <DialogHeader className="p-6 border-b-2 border-primary/30">
+            <DialogTitle className="text-2xl font-bold tracking-wide uppercase terminal-glow-intense text-primary font-mono flex items-center gap-3">
+              <MonitorPlay size={32} weight="bold" className="text-primary terminal-glow" />
+              3270CONNECT DASHBOARD
+            </DialogTitle>
+          </DialogHeader>
+          <div className="overflow-auto h-[calc(95vh-80px)] p-6">
+            <div className="w-full">
+              <img 
+                src={dashboardImageUrl}
+                alt="3270Connect Dashboard - Monitor workflows, resources, and process health at a glance"
+                className="w-full h-auto rounded border-2 border-primary/30 card-glow"
+                loading="lazy"
+              />
+              <p className="text-center text-muted-foreground font-mono text-sm mt-4">
+                {'>'} SYSTEM INTERFACE: Real-time monitoring of workflows, resources, and process health
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
