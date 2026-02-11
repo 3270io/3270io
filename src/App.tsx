@@ -73,14 +73,16 @@ function App() {
     },
     {
       name: "3270Web",
-      description: "Open-source modern web-based mainframe interface bringing 3270 terminal access to any browser with zero installation requirements.",
+      description: "Web-based 3270 terminal interface in Go with session recording to a 3270Connect-compatible workflow.",
       docsUrl: "https://3270web.3270.io",
       githubUrl: "https://github.com/3270io/3270Web",
       features: [
-        "Browser-Based Access",
-        "Modern UI/UX",
-        "Cross-Platform Compatible",
-        "RESTful API Integration"
+        "Web UI for 3270 sessions",
+        "Embedded s3270 binary support (Windows)",
+        "Record sessions to workflow.json format",
+        "Load workflow.json and play it back",
+        "Docker image and GHCR workflow",
+        "Windows build script"
       ]
     }
   ]
