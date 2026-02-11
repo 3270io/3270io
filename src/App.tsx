@@ -1,15 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Terminal, ArrowRight, Book, FastForward, GithubLogo, MonitorPlay } from "@phosphor-icons/react"
+import { Terminal, ArrowRight, Book, FastForward, GithubLogo, Image as ImageIcon, CaretLeft, CaretRight } from "@phosphor-icons/react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
-import { dashboardImageUrl } from "@/lib/dashboard-image"
+import { product3270ConnectImages, product3270WebImages } from "@/lib/dashboard-image"
 
 function App() {
   const [bootComplete, setBootComplete] = useState(false)
   const [currentLine, setCurrentLine] = useState(0)
-  const [showDashboard, setShowDashboard] = useState(false)
+  const [showImages, setShowImages] = useState(false)
+  const [currentProduct, setCurrentProduct] = useState<"3270Connect" | "3270Web" | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const bootSequence = [
     "SYSTEM INITIALIZATION...",
@@ -61,7 +63,7 @@ function App() {
 
   const products = [
     {
-      name: "3270Connect",
+      name: "3270Connect" as const,
       description: "Repeatable scripted workflows to replicate human 3270 online integration with unlimited scale. Web dashboard, API and CLI for functional and non-functional testing of Mainframe 3270 Online applications.",
       docsUrl: "https://3270connect.3270.io",
       githubUrl: "https://github.com/3270io/3270Connect",
@@ -72,10 +74,11 @@ function App() {
         "Headless mode for CI/CD & background automation",
         "Verbose output mode with failure-only logging for diagnostics",
         "API server enabling load testing & advanced automation scenarios"
-      ]
+      ],
+      images: product3270ConnectImages
     },
     {
-      name: "3270Web",
+      name: "3270Web" as const,
       description: "Web-based 3270 terminal interface in Go with session recording to a 3270Connect-compatible workflow.",
       docsUrl: "https://3270web.3270.io",
       githubUrl: "https://github.com/3270io/3270Web",
@@ -86,9 +89,26 @@ function App() {
         "Record sessions to workflow.json compatible with 3270Connect",
         "Load & playback workflow.json for automated session replay",
         "Docker image with GHCR workflow for containerized deployment"
-      ]
+      ],
+      images: product3270WebImages
     }
   ]
+
+  const handleShowImages = (productName: "3270Connect" | "3270Web") => {
+    setCurrentProduct(productName)
+    setCurrentImageIndex(0)
+    setShowImages(true)
+  }
+
+  const currentImages = currentProduct === "3270Connect" ? product3270ConnectImages : product3270WebImages
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % currentImages.length)
+  }
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length)
+  }
 
   return (
     <div className="min-h-screen scanlines relative">
@@ -295,17 +315,15 @@ function App() {
                             <ArrowRight size={20} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
                           </Button>
                         </a>
-                        {product.name === "3270Connect" && (
-                          <Button 
-                            onClick={() => setShowDashboard(true)}
-                            className="w-full bg-transparent border-2 border-accent text-accent hover:bg-accent/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold tracking-widest uppercase group"
-                            size="lg"
-                          >
-                            <MonitorPlay size={20} weight="bold" className="mr-2" />
-                            [ VIEW DASHBOARD ]
-                            <ArrowRight size={20} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
-                          </Button>
-                        )}
+                        <Button 
+                          onClick={() => handleShowImages(product.name)}
+                          className="w-full bg-transparent border-2 border-accent text-accent hover:bg-accent/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold tracking-widest uppercase group"
+                          size="lg"
+                        >
+                          <ImageIcon size={20} weight="bold" className="mr-2" />
+                          [ SHOW IMAGES ]
+                          <ArrowRight size={20} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -350,25 +368,65 @@ function App() {
         )}
       </AnimatePresence>
 
-      <Dialog open={showDashboard} onOpenChange={setShowDashboard}>
+      <Dialog open={showImages} onOpenChange={setShowImages}>
         <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 border-2 border-primary/40 bg-card overflow-hidden">
           <DialogHeader className="p-6 border-b-2 border-primary/30">
             <DialogTitle className="text-2xl font-bold tracking-wide uppercase terminal-glow-intense text-primary font-mono flex items-center gap-3">
-              <MonitorPlay size={32} weight="bold" className="text-primary terminal-glow" />
-              3270CONNECT DASHBOARD
+              <ImageIcon size={32} weight="bold" className="text-primary terminal-glow" />
+              {currentProduct} IMAGES
             </DialogTitle>
           </DialogHeader>
-          <div className="overflow-auto h-[calc(95vh-80px)] p-6">
+          <div className="overflow-auto h-[calc(95vh-80px)] p-6 relative">
             <div className="w-full">
-              <img 
-                src={dashboardImageUrl}
-                alt="3270Connect Dashboard - Monitor workflows, resources, and process health at a glance"
-                className="w-full h-auto rounded border-2 border-primary/30 card-glow"
-                loading="lazy"
-              />
-              <p className="text-center text-muted-foreground font-mono text-sm mt-4">
-                {'>'} SYSTEM INTERFACE: Real-time monitoring of workflows, resources, and process health
-              </p>
+              <div className="relative">
+                <img 
+                  src={currentImages[currentImageIndex].url}
+                  alt={currentImages[currentImageIndex].alt}
+                  className="w-full h-auto rounded border-2 border-primary/30 card-glow"
+                  loading="lazy"
+                />
+                {currentImages.length > 1 && (
+                  <>
+                    <Button
+                      onClick={handlePrevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
+                      size="icon"
+                      aria-label="Previous image"
+                    >
+                      <CaretLeft size={24} weight="bold" />
+                    </Button>
+                    <Button
+                      onClick={handleNextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
+                      size="icon"
+                      aria-label="Next image"
+                    >
+                      <CaretRight size={24} weight="bold" />
+                    </Button>
+                  </>
+                )}
+              </div>
+              <div className="mt-4 space-y-2">
+                <p className="text-center text-muted-foreground font-mono text-sm">
+                  {'>'} {currentImages[currentImageIndex].caption}
+                </p>
+                {currentImages.length > 1 && (
+                  <div className="flex items-center justify-center gap-2">
+                    {currentImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          index === currentImageIndex 
+                            ? 'w-8 bg-accent terminal-glow' 
+                            : 'w-2 bg-primary/40 hover:bg-primary/60'
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </DialogContent>
