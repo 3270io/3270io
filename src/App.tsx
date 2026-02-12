@@ -115,7 +115,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen scanlines relative">
+    <div className="min-h-screen scanlines relative overflow-x-clip">
       <AnimatePresence mode="wait">
         {!bootComplete ? (
           <motion.div
@@ -187,13 +187,13 @@ function App() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.2 }}
-                  className="ml-auto"
+                  className="ml-auto w-full md:w-auto"
                 >
                   <Button
                     onClick={() => setBootComplete(true)}
                     variant="outline"
-                    size="sm"
-                    className="border-accent/50 text-accent hover:bg-accent/10 hover:border-accent terminal-glow hover:amber-glow font-mono text-xs tracking-wider group"
+                    size="default"
+                    className="w-full md:w-auto h-11 md:h-8 border-accent/50 text-accent hover:bg-accent/10 hover:border-accent terminal-glow hover:amber-glow font-mono text-sm md:text-xs tracking-wider group"
                   >
                     <FastForward size={16} weight="bold" className="mr-2 group-hover:animate-pulse" />
                     [ SKIP ]
@@ -269,7 +269,7 @@ function App() {
                             href={product.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group"
+                            className="group -m-2 p-2"
                             aria-label={`View ${product.name} on GitHub`}
                           >
                             <GithubLogo 
@@ -283,7 +283,7 @@ function App() {
                       <CardTitle className="text-2xl md:text-3xl font-bold tracking-wide uppercase terminal-glow-intense text-primary">
                         {product.name}
                       </CardTitle>
-                      <CardDescription className="text-card-foreground/80 text-sm md:text-base font-mono leading-relaxed h-[6.5rem]">
+                      <CardDescription className="text-card-foreground/80 text-sm md:text-base font-mono leading-relaxed md:h-[6.5rem]">
                         {product.description}
                       </CardDescription>
                     </CardHeader>
@@ -311,22 +311,22 @@ function App() {
                           className="block"
                         >
                           <Button 
-                            className="w-full bg-transparent border-2 border-primary text-primary hover:bg-primary/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold tracking-widest uppercase group"
+                            className="w-full h-12 sm:h-10 bg-transparent border-2 border-primary text-primary hover:bg-primary/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold text-xs sm:text-sm tracking-wide sm:tracking-widest uppercase group"
                             size="lg"
                           >
-                            <Book size={20} weight="bold" className="mr-2" />
+                            <Book size={18} weight="bold" className="mr-2 sm:size-5" />
                             [ DOCUMENTATION ]
-                            <ArrowRight size={20} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight size={18} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform sm:size-5" />
                           </Button>
                         </a>
                         <Button 
                           onClick={() => handleShowImages(product.name)}
-                          className="w-full bg-transparent border-2 border-accent text-accent hover:bg-accent/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold tracking-widest uppercase group"
+                          className="w-full h-12 sm:h-10 bg-transparent border-2 border-accent text-accent hover:bg-accent/10 hover:border-accent hover:text-accent terminal-glow hover:amber-glow transition-all duration-300 font-mono font-bold text-xs sm:text-sm tracking-wide sm:tracking-widest uppercase group"
                           size="lg"
                         >
-                          <ImageIcon size={20} weight="bold" className="mr-2" />
+                          <ImageIcon size={18} weight="bold" className="mr-2 sm:size-5" />
                           [ SHOW IMAGES ]
-                          <ArrowRight size={20} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight size={18} weight="bold" className="ml-2 group-hover:translate-x-1 transition-transform sm:size-5" />
                         </Button>
                       </div>
                     </CardContent>
@@ -342,13 +342,13 @@ function App() {
               className="mt-12 border-t-2 border-primary/30 pt-8"
             >
               <div className="text-center space-y-2">
-                <p className="text-sm text-muted-foreground font-mono">
+                <p className="hidden md:block text-sm text-muted-foreground font-mono">
                   ┌────────────────────────────────────────────────────────────┐
                 </p>
                 <p className="text-sm text-primary/70 font-mono">
                   Hammering and Connecting to 3270 Terminals since 2023
                 </p>
-                <p className="text-sm text-muted-foreground font-mono">
+                <p className="hidden md:block text-sm text-muted-foreground font-mono">
                   └────────────────────────────────────────────────────────────┘
                 </p>
               </div>
@@ -357,9 +357,9 @@ function App() {
         </main>
 
         <footer className="border-t-2 border-primary/30 py-6 px-6 md:px-12 lg:px-24 mt-auto">
-          <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-mono">
-              <div>
+              <div className="text-center md:text-left">
                 [STATUS: ONLINE] | [UPTIME: 99.9%] | [LATENCY: {'<'}10ms]
               </div>
               <div className="text-center md:text-right">
@@ -373,7 +373,7 @@ function App() {
       </AnimatePresence>
 
       <Dialog open={showImages} onOpenChange={handleImagesOpenChange}>
-        <DialogContent className="w-[96vw] sm:w-[98vw] h-[92svh] sm:h-[95vh] max-w-[1600px] max-h-[95svh] sm:max-h-[95vh] p-0 border-2 border-primary/40 bg-card overflow-hidden flex flex-col">
+        <DialogContent className="w-[calc(100dvw-0.75rem)] sm:w-[98vw] h-[92svh] sm:h-[95vh] max-w-[calc(100dvw-0.75rem)] sm:max-w-[1600px] max-h-[95svh] sm:max-h-[95vh] p-0 border-2 border-primary/40 bg-card overflow-hidden flex flex-col">
           <DialogHeader className="p-4 sm:p-6 border-b-2 border-primary/30 flex flex-row flex-wrap items-center justify-between gap-2 sm:gap-3 space-y-0 shrink-0">
             <DialogTitle className="text-lg sm:text-2xl font-bold tracking-wide uppercase terminal-glow-intense text-primary font-mono flex items-center gap-2 sm:gap-3 flex-wrap">
               <ImageIcon weight="bold" className="text-primary terminal-glow size-7 sm:size-8" />
@@ -393,7 +393,7 @@ function App() {
                   <>
                     <Button
                       onClick={handlePrevImage}
-                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
+                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 !size-11 sm:!size-9 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
                       size="icon"
                       aria-label="Previous image"
                     >
@@ -401,7 +401,7 @@ function App() {
                     </Button>
                     <Button
                       onClick={handleNextImage}
-                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
+                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 !size-11 sm:!size-9 bg-card/90 border-2 border-primary hover:bg-primary/10 hover:border-accent text-primary hover:text-accent terminal-glow hover:amber-glow transition-all duration-300"
                       size="icon"
                       aria-label="Next image"
                     >
@@ -420,13 +420,21 @@ function App() {
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`h-2 rounded-full transition-all duration-300 ${
+                        className={`h-8 min-w-8 px-2 flex items-center justify-center rounded-full transition-all duration-300 ${
                           index === currentImageIndex 
-                            ? 'w-8 bg-accent terminal-glow' 
-                            : 'w-2 bg-primary/40 hover:bg-primary/60'
+                            ? 'bg-accent/20' 
+                            : 'bg-transparent hover:bg-primary/20'
                         }`}
                         aria-label={`Go to image ${index + 1}`}
-                      />
+                      >
+                        <span
+                          className={`h-2 rounded-full transition-all duration-300 ${
+                            index === currentImageIndex
+                              ? 'w-8 bg-accent terminal-glow'
+                              : 'w-3 bg-primary/40 hover:bg-primary/60'
+                          }`}
+                        />
+                      </button>
                     ))}
                   </div>
                 )}

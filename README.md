@@ -7,6 +7,8 @@ Mainframe 3270 automation and web tooling for modern engineering workflows.
 ### 3270Connect
 Repeatable scripted workflows to replicate human 3270 online integration at unlimited scale. Includes a web dashboard, API, and CLI for functional and non-functional testing of mainframe 3270 online applications.
 
+<img src="src/assets/images/3270Connect/3270Connect_dashboard.png" alt="3270Connect Dashboard" width="900" />
+
 - Docs: https://3270connect.3270.io
 - GitHub: https://github.com/3270io/3270Connect
 - Highlights:
@@ -18,6 +20,8 @@ Repeatable scripted workflows to replicate human 3270 online integration at unli
 
 ### 3270Web
 Web-based 3270 terminal interface in Go with session recording to a 3270Connect-compatible workflow.
+
+<img src="src/assets/images/3270Web/3270Web_sample.png" alt="3270Web Terminal" width="900" />
 
 - Docs: https://3270web.3270.io
 - GitHub: https://github.com/3270io/3270Web

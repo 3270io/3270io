@@ -72,6 +72,13 @@
 
 body {
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  overflow-x: clip;
+}
+
+/* Keep layout stable when Radix Dialog scroll-lock is active. */
+body[data-scroll-locked] {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
 }
 
 .terminal-glow {
