@@ -85,7 +85,7 @@ function App() {
       features: [
         "Web UI for interactive 3270 terminal sessions with detailed logging",
         "Virtual keyboard support for comprehensive terminal interaction",
-        "Chaos mode (choas mode) support for randomized session testing",
+        "Chaos mode support for randomized session testing",
         "Full 3270 terminal settings to support any mainframe backend session",
         "Record sessions to workflow.json compatible with 3270Connect",
         "Load & playback workflow.json for automated session replay",
