@@ -19,7 +19,7 @@ Repeatable scripted workflows to replicate human 3270 online integration at unli
   - API server for load testing and advanced orchestration
 
 ### 3270Web
-Web-based 3270 terminal interface in Go with session recording to a 3270Connect-compatible workflow.
+Web-based 3270 terminal interface in Go with AI Chat, session recording, and a 3270Connect-compatible workflow.
 
 <img src="src/assets/images/3270Web/3270Web_sample.png" alt="3270Web Terminal" width="900" />
 
@@ -28,6 +28,7 @@ Web-based 3270 terminal interface in Go with session recording to a 3270Connect-
 - Highlights:
   - Browser UI for interactive 3270 sessions with detailed logging
   - Virtual keyboard support for full terminal interaction
+  - AI Chat side panel for conversational screen reading, guided actions, and chaos exploration with explicit approval
   - Chaos mode support for randomized session testing
   - Export sessions as `workflow.json` compatible with 3270Connect
   - Load and replay `workflow.json` for repeatable flows

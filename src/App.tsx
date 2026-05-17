@@ -79,12 +79,13 @@ function App() {
     },
     {
       name: "3270Web" as const,
-      description: "Web-based 3270 terminal interface in Go with session recording to a 3270Connect-compatible workflow.",
+      description: "Web-based 3270 terminal interface in Go with AI Chat, session recording, and a 3270Connect-compatible workflow.",
       docsUrl: "https://3270web.3270.io",
       githubUrl: "https://github.com/3270io/3270Web",
       features: [
         "Web UI for interactive 3270 terminal sessions with detailed logging",
         "Virtual keyboard support for comprehensive terminal interaction",
+        "AI Chat side panel for conversational screen reading, guided actions, and chaos exploration with explicit approval",
         "Chaos mode support for randomized session testing",
         "Full 3270 terminal settings to support any mainframe backend session",
         "Record sessions to workflow.json compatible with 3270Connect",
