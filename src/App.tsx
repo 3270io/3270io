@@ -73,7 +73,10 @@ function App() {
         "Execute multiple workflows in parallel for optimized testing",
         "Headless mode for CI/CD & background automation",
         "Verbose output mode with failure-only logging for diagnostics",
-        "API server enabling load testing & advanced automation scenarios"
+        "API server enabling load testing & advanced automation scenarios",
+        "Prometheus /metrics endpoint for connect/step timing and live worker counts",
+        "Host compatibility profiler producing 3270Web-compatible JSON for cross-environment diffs",
+        "Hardened input handling: injection, filename, and path-traversal prevention"
       ],
       images: product3270ConnectImages
     },
@@ -86,7 +89,11 @@ function App() {
         "Web UI for interactive 3270 terminal sessions with detailed logging",
         "Virtual keyboard support for comprehensive terminal interaction",
         "AI Chat side panel for conversational screen reading, guided actions, and chaos exploration with explicit approval",
+        "AI Chat model selector — switch between Copilot models (default Claude Opus 4)",
         "Chaos mode support for randomized session testing",
+        "Chaos Mind-Map Compare API for diffing host divergence across environments",
+        "Host compatibility profiler API producing 3270Connect-compatible JSON",
+        "IBM 3270 terminal fonts (Regular, Semi-Condensed, Condensed) bundled with the app",
         "Full 3270 terminal settings to support any mainframe backend session",
         "Record sessions to workflow.json compatible with 3270Connect",
         "Load & playback workflow.json for automated session replay",

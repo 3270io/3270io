@@ -17,6 +17,9 @@ Repeatable scripted workflows to replicate human 3270 online integration at unli
   - Run workflows in parallel for faster validation
   - Headless mode for CI/CD automation
   - API server for load testing and advanced orchestration
+  - Prometheus `/metrics` endpoint for connect/step timing and live worker counts
+  - Host compatibility profiler producing 3270Web-compatible JSON for cross-environment diffs
+  - Hardened input handling: injection, filename, and path-traversal prevention
 
 ### 3270Web
 Web-based 3270 terminal interface in Go with AI Chat, session recording, and a 3270Connect-compatible workflow.
@@ -29,7 +32,11 @@ Web-based 3270 terminal interface in Go with AI Chat, session recording, and a 3
   - Browser UI for interactive 3270 sessions with detailed logging
   - Virtual keyboard support for full terminal interaction
   - AI Chat side panel for conversational screen reading, guided actions, and chaos exploration with explicit approval
+  - AI Chat model selector — switch between Copilot models (default Claude Opus 4)
   - Chaos mode support for randomized session testing
+  - Chaos Mind-Map Compare API for diffing host divergence across environments
+  - Host compatibility profiler API producing 3270Connect-compatible JSON
+  - IBM 3270 terminal fonts (Regular, Semi-Condensed, Condensed) bundled with the app
   - Export sessions as `workflow.json` compatible with 3270Connect
   - Load and replay `workflow.json` for repeatable flows
   - Docker image and GHCR publishing workflow
