@@ -22,7 +22,7 @@ Repeatable scripted workflows to replicate human 3270 online integration at unli
   - Hardened input handling: injection, filename, and path-traversal prevention
 
 ### 3270Web
-Web-based 3270 terminal interface in Go with AI Chat, session recording, and a 3270Connect-compatible workflow.
+Web-based 3270 terminal interface in Go. Drive sessions with AI Chat — read screens, run chaos discovery, and map each screen's business purpose — then record and replay 3270Connect-compatible workflows.
 
 <img src="src/assets/images/3270Web/3270Web_sample.png" alt="3270Web Terminal" width="900" />
 
@@ -31,9 +31,12 @@ Web-based 3270 terminal interface in Go with AI Chat, session recording, and a 3
 - Highlights:
   - Browser UI for interactive 3270 sessions with detailed logging
   - Virtual keyboard support for full terminal interaction
-  - AI Chat side panel for conversational screen reading, guided actions, and chaos exploration with explicit approval
-  - AI Chat model selector — switch between Copilot models (default Claude Opus 4)
-  - Chaos mode support for randomized session testing
+  - AI Chat side panel — drive 3270 sessions by conversation: read screens, write fields, and press keys, with per-action approval or hands-free Auto Mode
+  - Chat-driven chaos discovery — start, monitor, and export automated exploration runs and discovery reports without leaving the conversation
+  - Business understanding — the AI annotates each discovered screen's purpose and field meanings, then catalogs named business functions like "Account inquiry"
+  - Run business functions by prompt — e.g. "look up account 1234" drives the live session step by step or generates a self-describing workflow JSON
+  - AI Chat model selector — switch between GitHub Copilot models (default Claude Sonnet 4.6)
+  - Chaos mode for randomized session testing with screen-graph discovery reports
   - Chaos Mind-Map Compare API for diffing host divergence across environments
   - Host compatibility profiler API producing 3270Connect-compatible JSON
   - IBM 3270 terminal fonts (Regular, Semi-Condensed, Condensed) bundled with the app
