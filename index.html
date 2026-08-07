@@ -45,10 +45,16 @@
     <script>
         // Apply the stored palette before first paint so the page never flashes
         // the default phosphor theme at someone who chose daylight.
+        //
+        // The cookie is checked first because it is shared across *.3270.io —
+        // a palette picked on the docs sites is already the right answer here.
         (function () {
+            var THEMES = ['phosphor', 'amber', 'ice', 'daylight'];
             try {
-                var stored = localStorage.getItem('3270io:theme');
-                if (stored && stored !== 'phosphor') {
+                var match = document.cookie.match(/(?:^|;\s*)3270io_theme=([^;]+)/);
+                var stored = match ? decodeURIComponent(match[1]) : null;
+                if (THEMES.indexOf(stored) === -1) stored = localStorage.getItem('3270io:theme');
+                if (THEMES.indexOf(stored) !== -1 && stored !== 'phosphor') {
                     document.documentElement.setAttribute('data-theme', stored);
                 }
             } catch (e) { /* storage unavailable — default theme is fine */ }
