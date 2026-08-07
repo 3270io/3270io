@@ -52,9 +52,19 @@ Use `3270Web` to interactively build and record terminal sessions, then run thos
 
 This repository contains the public landing page for 3270.io.
 
+This repository is the landing page for 3270.io — a launcher into the two
+projects. Anything that needs explaining in depth lives in each project's own
+MkDocs site, not here.
+
 - Stack: React, TypeScript, Vite, Tailwind CSS
-- App entry: `src/App.tsx`
-- Product image config: `src/lib/dashboard-image.ts`
+- App entry: `src/App.tsx`; sections in `src/components/site/`
+- Copy, screenshots and links: `src/lib/site-data.ts`
+- Design tokens and primitives: `src/styles/tokens.css`, `src/styles/site.css`
+- Product screenshots: `src/assets/shots/`
+
+The design tokens mirror the 3270Connect operations console, including its
+four themes (phosphor, amber, ice, daylight), so the site and the products
+share one visual language.
 
 ## Local Development
 

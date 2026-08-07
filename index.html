@@ -4,44 +4,67 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>3270.io - Open Source Mainframe Connectivity Solutions | IBM 3270 Terminal Emulation</title>
-    <meta name="description" content="3270.io provides open-source mainframe connectivity solutions including 3270Connect for automated testing and 3270Web for web-based terminal emulation. 3270Web's AI Chat copilot drives sessions by conversation, runs chaos discovery, and maps each screen's business purpose, alongside Prometheus metrics, host compatibility profiling, chaos mind-map compare, and bundled IBM 3270 terminal fonts. Compatible with IBM 3270 terminal protocols." />
-    <meta name="keywords" content="mainframe, 3270, terminal emulation, TN3270, IBM mainframe, automated testing, workflow automation, 3270Connect, 3270Web, open source, legacy systems, CI/CD integration, host compatibility profiler, prometheus metrics, chaos mode, chaos compare, chaos discovery, ai chat, ai copilot, business discovery, business workflow generation, ibm 3270 fonts" />
+
+    <title>3270.io — Open source IBM 3270 mainframe tooling</title>
+    <meta name="description" content="3270.io builds two open-source tools for IBM 3270 mainframe systems. 3270Web is a browser terminal with an AI Chat copilot, chaos discovery and session recording. 3270Connect replays those workflows headless and at scale, with a live operations console and Prometheus metrics." />
+    <meta name="keywords" content="mainframe, 3270, terminal emulation, TN3270, IBM mainframe, automated testing, workflow automation, 3270Connect, 3270Web, open source, legacy systems, CI/CD integration, host compatibility profiler, prometheus metrics, chaos mode, chaos compare, chaos discovery, ai chat, ai copilot, business discovery, ibm 3270 fonts" />
     <meta name="author" content="3270.io" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#5DB39A" />
+    <meta name="theme-color" content="#03110d" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    
+
     <link rel="canonical" href="https://3270.io" />
-    
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://3270.io" />
-    <meta property="og:title" content="3270.io - Open Source Mainframe Connectivity Solutions" />
-    <meta property="og:description" content="Open-source tools for IBM 3270 mainframe connectivity. 3270Connect provides automated testing workflows and API server capabilities. 3270Web offers web-based terminal emulation with an AI Chat copilot that runs chaos discovery and maps each screen's business purpose." />
+    <meta property="og:title" content="3270.io — Open source IBM 3270 mainframe tooling" />
+    <meta property="og:description" content="Record a 3270 session in the browser, replay it headless at any scale, and watch every workflow land on a live operations console. Two open-source tools: 3270Web and 3270Connect." />
     <meta property="og:image" content="https://3270.io/OGImage.png" />
     <meta property="og:image:secure_url" content="https://3270.io/OGImage.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="3270.io mainframe connectivity platform preview image" />
     <meta property="og:site_name" content="3270.io" />
     <meta property="og:locale" content="en_US" />
-    
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://3270.io" />
-    <meta name="twitter:title" content="3270.io - Open Source Mainframe Connectivity Solutions" />
-    <meta name="twitter:description" content="Open-source tools for IBM 3270 mainframe connectivity. Automated testing, web-based terminal emulation, and CI/CD integration for legacy systems." />
+    <meta name="twitter:title" content="3270.io — Open source IBM 3270 mainframe tooling" />
+    <meta name="twitter:description" content="Record a 3270 session in the browser, replay it headless at any scale, and watch every workflow land on a live operations console." />
     <meta name="twitter:image" content="https://3270.io/OGImage.png" />
     <meta name="twitter:image:alt" content="3270.io mainframe connectivity platform preview image" />
     <meta name="twitter:creator" content="@3270io" />
-    
-    <meta itemprop="name" content="3270.io - Mainframe Connectivity Solutions" />
-    <meta itemprop="description" content="Open-source IBM 3270 terminal emulation and automated testing tools for mainframe applications." />
+
+    <meta itemprop="name" content="3270.io — Open source IBM 3270 mainframe tooling" />
+    <meta itemprop="description" content="Open-source IBM 3270 terminal emulation, AI-assisted exploration and automated workflow replay for mainframe applications." />
     <meta itemprop="image" content="https://3270.io/OGImage.png" />
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="/src/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        // Apply the stored palette before first paint so the page never flashes
+        // the default phosphor theme at someone who chose daylight.
+        (function () {
+            try {
+                var stored = localStorage.getItem('3270io:theme');
+                if (stored && stored !== 'phosphor') {
+                    document.documentElement.setAttribute('data-theme', stored);
+                }
+            } catch (e) { /* storage unavailable — default theme is fine */ }
+        })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "3270.io",
+        "url": "https://3270.io",
+        "description": "Open-source tooling for IBM 3270 mainframe systems.",
+        "sameAs": ["https://github.com/3270io"]
+    }
+    </script>
 </head>
 
 <body>
