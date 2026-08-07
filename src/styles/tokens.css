@@ -1,0 +1,207 @@
+/* ==========================================================================
+   3270.io — design tokens
+
+   Shared vocabulary with the 3270Connect operations console and the 3270Web
+   terminal UI: the same accent ramp, the same four themes, the same
+   mono-eyebrow/glass-surface language. Change a value here and the whole
+   site moves with it.
+   ========================================================================== */
+
+/* --- Phosphor green (default) ------------------------------------------- */
+:root {
+  --bg: #03110d;
+  --bg-deep: #010806;
+
+  --aurora-1: rgba(78, 255, 176, 0.18);
+  --aurora-2: rgba(90, 210, 255, 0.12);
+  --aurora-3: rgba(185, 140, 255, 0.10);
+
+  --surface: rgba(9, 40, 30, 0.62);
+  --surface-2: rgba(6, 30, 23, 0.72);
+  --surface-3: rgba(4, 20, 16, 0.86);
+  --surface-solid: #06201a;
+
+  --line: rgba(78, 255, 176, 0.16);
+  --line-strong: rgba(78, 255, 176, 0.34);
+
+  --text: #e6fff5;
+  --text-2: #9fe6c8;
+  --text-3: #5f9e86;
+
+  --accent: #4effb3;
+  --accent-2: #7cf9d0;
+  --accent-ink: #02130a;
+  --accent-soft: rgba(78, 255, 176, 0.14);
+
+  --ok: #4effb3;
+  --info: #5ad2ff;
+  --warn: #f7c36b;
+  --danger: #ff6f82;
+  --violet: #b98cff;
+
+  /* Shape & depth */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 12px 32px -12px rgba(0, 0, 0, 0.75);
+  --shadow-3: 0 32px 80px -24px rgba(0, 0, 0, 0.85);
+
+  /* Type */
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', Consolas, monospace;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 140ms;
+  --dur-2: 260ms;
+  --dur-3: 520ms;
+
+  /* Layout */
+  --gutter: clamp(18px, 4vw, 40px);
+  --measure: 1240px;
+  --nav-h: 62px;
+
+  color-scheme: dark;
+}
+
+/* --- Amber CRT ---------------------------------------------------------- */
+html[data-theme='amber'] {
+  --bg: #150c02;
+  --bg-deep: #0a0601;
+  --aurora-1: rgba(255, 183, 77, 0.20);
+  --aurora-2: rgba(255, 122, 89, 0.12);
+  --aurora-3: rgba(255, 231, 143, 0.08);
+
+  --surface: rgba(52, 32, 6, 0.58);
+  --surface-2: rgba(38, 23, 4, 0.72);
+  --surface-3: rgba(26, 15, 2, 0.86);
+  --surface-solid: #1e1204;
+
+  --line: rgba(255, 183, 77, 0.18);
+  --line-strong: rgba(255, 183, 77, 0.38);
+
+  --text: #fff3dc;
+  --text-2: #e9c48a;
+  --text-3: #a3814c;
+
+  --accent: #ffb84d;
+  --accent-2: #ffd489;
+  --accent-ink: #1a0f01;
+  --accent-soft: rgba(255, 184, 77, 0.16);
+
+  --ok: #8fe388;
+  --info: #7cc8ff;
+  --warn: #ffd166;
+  --danger: #ff7a6b;
+  --violet: #d6a4ff;
+}
+
+/* --- Ice / steel -------------------------------------------------------- */
+html[data-theme='ice'] {
+  --bg: #050b16;
+  --bg-deep: #02050c;
+  --aurora-1: rgba(90, 210, 255, 0.20);
+  --aurora-2: rgba(120, 140, 255, 0.14);
+  --aurora-3: rgba(80, 255, 220, 0.08);
+
+  --surface: rgba(14, 32, 58, 0.58);
+  --surface-2: rgba(10, 24, 44, 0.74);
+  --surface-3: rgba(6, 16, 32, 0.88);
+  --surface-solid: #0a1830;
+
+  --line: rgba(120, 200, 255, 0.16);
+  --line-strong: rgba(120, 200, 255, 0.36);
+
+  --text: #eaf5ff;
+  --text-2: #a7c9e8;
+  --text-3: #6b8bab;
+
+  --accent: #5ad2ff;
+  --accent-2: #9be6ff;
+  --accent-ink: #021019;
+  --accent-soft: rgba(90, 210, 255, 0.15);
+
+  --ok: #4ee9b0;
+  --info: #5ad2ff;
+  --warn: #ffcc70;
+  --danger: #ff7a90;
+  --violet: #a99bff;
+}
+
+/* --- Daylight (light) --------------------------------------------------- */
+html[data-theme='daylight'] {
+  --bg: #eef2f0;
+  --bg-deep: #dde5e1;
+  --aurora-1: rgba(0, 160, 105, 0.12);
+  --aurora-2: rgba(0, 130, 190, 0.08);
+  --aurora-3: rgba(140, 100, 220, 0.06);
+
+  --surface: rgba(255, 255, 255, 0.84);
+  --surface-2: rgba(255, 255, 255, 0.94);
+  --surface-3: rgba(246, 249, 247, 0.98);
+  --surface-solid: #ffffff;
+
+  --line: rgba(12, 60, 45, 0.14);
+  --line-strong: rgba(12, 60, 45, 0.26);
+
+  --text: #082019;
+  --text-2: #3d5c51;
+  --text-3: #6d8579;
+
+  --accent: #00875a;
+  --accent-2: #00a76f;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(0, 135, 90, 0.12);
+
+  --ok: #12805a;
+  --info: #0b6fa4;
+  --warn: #a16207;
+  --danger: #c0392b;
+  --violet: #6d4bbd;
+
+  --shadow-2: 0 12px 32px -14px rgba(8, 32, 25, 0.35);
+  --shadow-3: 0 32px 80px -28px rgba(8, 32, 25, 0.35);
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   shadcn/ui bridge — the handful of Radix-backed primitives we still use
+   (Dialog) read these names. Mapping them onto the tokens above keeps those
+   components on-theme in all four palettes.
+   ========================================================================== */
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-card: var(--surface-solid);
+  --color-card-foreground: var(--text);
+  --color-popover: var(--surface-solid);
+  --color-popover-foreground: var(--text);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--accent-ink);
+  --color-secondary: var(--surface-2);
+  --color-secondary-foreground: var(--text);
+  --color-muted: var(--surface-2);
+  --color-muted-foreground: var(--text-3);
+  --color-accent: var(--accent-soft);
+  --color-accent-foreground: var(--text);
+  --color-destructive: var(--danger);
+  --color-destructive-foreground: var(--text);
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--accent);
+
+  --radius-sm: var(--r-xs);
+  --radius-md: var(--r-sm);
+  --radius-lg: var(--r-md);
+  --radius-xl: var(--r-lg);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
