@@ -1,7 +1,9 @@
 import type { Icon as PhosphorIcon } from "@phosphor-icons/react"
 import {
+  Bridge,
   ChartLineUp,
   Detective,
+  FrameCorners,
   Gauge,
   Lightning,
   Package,
@@ -18,8 +20,10 @@ import {
 
 /** Keeps the content model free of component imports. */
 const REGISTRY: Record<string, PhosphorIcon> = {
+  bridge: Bridge,
   chart: ChartLineUp,
   detective: Detective,
+  frame: FrameCorners,
   gauge: Gauge,
   lightning: Lightning,
   package: Package,
