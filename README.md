@@ -88,6 +88,10 @@ profile for 3270Connect.
   - **Operate in English** — "look up account 1234" drives the live session step by step, or emits a self-describing workflow JSON
   - **Record coverage** — full application screen coverage exported as 3270Connect-compatible `workflow.json` for performance and volume testing
   - AI Chat side panel with per-action approval or hands-free Auto Mode, backed by your choice of GitHub Copilot, Claude, OpenAI, Google AI, Ollama or any OpenAI-compatible endpoint
+  - **Embed it** — render the terminal inside your own portal for the origins you name, with a documented message channel for the page around it, or call the JSON API cross-origin and draw the screen yourself
+  - **Bring your scraper** — an HLLAPI-shaped endpoint with numbered functions, one-based presentation-space positions and return codes, so existing screen-scraping code ports by changing how it calls rather than what it does
+  - Touch support — the keys a screen ends with within a thumb's reach, and a tap that places the cursor, so a tablet is a usable terminal
+  - Screen snapshots diffed row by row, for checking a flow still lands on the screen it used to
   - Chaos Mind-Map Compare API for diffing host divergence across environments
   - Host compatibility profiler API producing 3270Connect-compatible JSON
   - IBM 3270 terminal fonts (Regular, Semi-Condensed, Condensed) bundled with the app

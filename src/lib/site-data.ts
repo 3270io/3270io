@@ -141,6 +141,7 @@ export const products: Product[] = [
         points: [
           "Enterprise 3270 sessions in a browser tab — nothing to install on the desktop",
           "Virtual keyboard, print screen, detailed logging, and full model/size/TLS control",
+          "Works on a tablet — the keys a screen ends with within a thumb's reach, and a tap that places the cursor",
           "Hardened by default: CSP, origin checks, CSRF and token-guarded REST",
         ],
       },
@@ -150,6 +151,7 @@ export const products: Product[] = [
           "AI auto-navigation drives the host itself and maps every screen and transition",
           "Each screen annotated with its business purpose, fields and named business functions",
           "Mind-map compare diffs host divergence across environments",
+          "Screen snapshots diffed row by row, so a flow can be checked against the screen it used to land on",
         ],
       },
       {
@@ -198,7 +200,7 @@ export const products: Product[] = [
     meta: [
       { label: "Language", value: "Go" },
       { label: "Ships as", value: "Docker · EXE · Binary" },
-      { label: "Interfaces", value: "Browser · REST · AI Chat · MCP" },
+      { label: "Interfaces", value: "Browser · Embed · REST · AI Chat · MCP" },
       { label: "AI providers", value: "Copilot · Claude · OpenAI · Google · Ollama" },
     ],
   },
@@ -229,6 +231,18 @@ export const capabilities: Capability[] = [
     title: "Skills you can write",
     body: "The procedures the assistant follows are files, not prose baked into a build. Drop a folder beside the binary to teach it your transaction codes, which PF key is safe on a particular screen, or the load profile you sign releases off against — and ship a set of them to your team as an extension.",
     tag: "Both",
+  },
+  {
+    icon: "frame",
+    title: "Put the terminal in your own application",
+    body: "Name the origins allowed to embed it and 3270Web renders inside your own portal without its own chrome, with a documented message channel so the page around it can read the screen and press keys. Or skip the frame entirely and draw the screen yourself from the JSON API. Nothing is opened until you name an origin.",
+    tag: "3270Web",
+  },
+  {
+    icon: "bridge",
+    title: "The screen-scraper you already have still fits",
+    body: "An HLLAPI-shaped endpoint: numbered functions, one-based presentation-space positions, and return codes where a program expects them. Code written years ago is ported by changing how it makes the call, not what it does — so a migration stops being a rewrite of every call site.",
+    tag: "3270Web",
   },
   {
     icon: "shuffle",
