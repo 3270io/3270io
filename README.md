@@ -1,4 +1,7 @@
-<img src="brand/assets/3270io/3270io-lockup-600.png" alt="3270.io" width="300">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/assets/3270io/3270io-lockup-600.png">
+  <img alt="3270.io" src="brand/assets/3270io/3270io-lockup-light-600.png" width="300">
+</picture>
 
 Mainframe 3270 automation and web tooling for modern engineering workflows.
 
@@ -8,9 +11,18 @@ and their own MkDocs sites.
 
 ## The brand
 
-<img src="brand/assets/3270io/3270io-mark-128.png" alt="3270.io" width="96">
-<img src="brand/assets/3270connect/3270connect-mark-128.png" alt="3270Connect" width="96">
-<img src="brand/assets/3270web/3270web-mark-128.png" alt="3270Web" width="96">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/assets/3270io/3270io-mark-128.png">
+  <img alt="3270.io" src="brand/assets/3270io/3270io-mark-light-128.png" width="96">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/assets/3270connect/3270connect-mark-128.png">
+  <img alt="3270Connect" src="brand/assets/3270connect/3270connect-mark-light-128.png" width="96">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/assets/3270web/3270web-mark-128.png">
+  <img alt="3270Web" src="brand/assets/3270web/3270web-mark-light-128.png" width="96">
+</picture>
 
 One idea, three variants: **the session stack** — terminal screens receding in
 depth, one session recorded and replayed many times. The plate, the stack and
@@ -27,7 +39,10 @@ mark in their own UI, re-tinted from the active palette.
 
 ### 3270Connect
 
-<img src="brand/assets/3270connect/3270connect-lockup-600.png" alt="3270Connect" width="260">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/assets/3270connect/3270connect-lockup-600.png">
+  <img alt="3270Connect" src="brand/assets/3270connect/3270connect-lockup-light-600.png" width="260">
+</picture>
 
 Repeatable scripted workflows that replicate human 3270 online integration at
 unlimited scale — a CLI, an API server, and a live operations console served
@@ -51,7 +66,10 @@ straight from the binary, for functional and non-functional testing of mainframe
 
 ### 3270Web
 
-<img src="brand/assets/3270web/3270web-lockup-600.png" alt="3270Web" width="240">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/assets/3270web/3270web-lockup-600.png">
+  <img alt="3270Web" src="brand/assets/3270web/3270web-lockup-light-600.png" width="240">
+</picture>
 
 An **enterprise-grade 3270 terminal in the browser** — no emulator install, no
 thick client — that also understands the application behind the screens. AI

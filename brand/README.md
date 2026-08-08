@@ -33,6 +33,7 @@ Each product directory carries the same set.
 | File | Use |
 |---|---|
 | `*-mark.svg` | the mark on its own, fixed colour — the default choice |
+| `*-mark-light.svg` | the same mark in the daylight accent, for a white or near-white ground |
 | `*-mark-themed.svg` | same drawing, reading `--accent` / `--accent-2` from the host page so it re-tints with the active palette |
 | `*-mark-mono.svg` | single colour via `currentColor`; for one-colour print, embroidery, or a favicon that must not carry a gradient |
 | `*-icon.svg` | the mark in a square frame — favicons and app icons |
@@ -47,11 +48,18 @@ vector.
 
 ## Colour
 
-All three static marks are drawn in one green — the phosphor accent.
+All three static marks are drawn in one green — the phosphor accent — with a
+second set for light grounds.
 
 | | accent | accent-2 |
 |---|---|---|
-| every mark | `#4effb3` | `#7cf9d0` |
+| every mark, on dark | `#4effb3` | `#7cf9d0` |
+| every mark, on light (`*-light.*`) | `#00875a` | `#00a76f` |
+
+Phosphor is tuned for a dark terminal and washes out on white — `#4effb3` on
+`#ffffff` is about 1.4:1. The on-light pair is the daylight palette's accent,
+already part of the brand rather than a colour invented for the purpose, and it
+holds up around 4:1.
 
 They deliberately do **not** track each product's own default palette. 3270Web's
 terminal defaults to `#39ff14`, but a mark that differs from its siblings reads
@@ -71,8 +79,20 @@ active, which is what `*-mark-themed.svg` is for.
   the three apart.
 - Below about 24px, use `*-icon.svg` or the 16/24/32 rasters. The full mark's
   glow and specular sweep are wasted there.
-- On a light background the coloured mark is fine, but the lockup needs
-  `*-lockup-light.svg` — the wordmark ink is otherwise near-white.
+- On a light background reach for the `*-light` files — both of them. The
+  phosphor mark washes out on white, and the dark lockup's wordmark is
+  near-white ink, which vanishes entirely.
+- In a README, don't pick one: GitHub honours `<picture>` with a
+  `prefers-color-scheme` source, so serve both and let the reader's theme
+  decide. Put the light file in the `<img>` fallback — a renderer that ignores
+  `<picture>` is far more likely to be showing a white page.
+
+  ```html
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="brand/assets/3270io/3270io-lockup-600.png">
+    <img alt="3270.io" src="brand/assets/3270io/3270io-lockup-light-600.png" width="300">
+  </picture>
+  ```
 
 ## Rebuilding
 

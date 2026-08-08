@@ -1,20 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 376 120" width="376" height="120" fill="none" role="img" aria-label="3270.io">
-  <g transform="translate(0 5) scale(1.25) translate(-17 -22)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="17 22 96 88" width="512" height="512" fill="none" role="img" aria-label="3270.io">
   <defs>
-    <linearGradient id="3270io-lk-lt-face" x1="0" y1="0" x2="0.35" y2="1">
+    <linearGradient id="3270io-lt-face" x1="0" y1="0" x2="0.35" y2="1">
       <stop offset="0" stop-color="#00a76f"/>
       <stop offset="1" stop-color="#00875a"/>
     </linearGradient>
-    <linearGradient id="3270io-lk-lt-spec" x1="0" y1="0" x2="0.4" y2="1">
+    <linearGradient id="3270io-lt-spec" x1="0" y1="0" x2="0.4" y2="1">
       <stop offset="0" stop-color="#fff" stop-opacity="0.26"/>
       <stop offset="0.5" stop-color="#fff" stop-opacity="0.03"/>
       <stop offset="1" stop-color="#fff" stop-opacity="0"/>
     </linearGradient>
-    <filter id="3270io-lk-lt-glow" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="3270io-lt-glow" x="-50%" y="-50%" width="200%" height="200%">
       <!-- flood-color ignores var() as an attribute but honours it as CSS. -->
       <feDropShadow dx="0" dy="5" stdDeviation="6" flood-opacity="0.45" style="flood-color:#00875a"/>
     </filter>
-    <mask id="3270io-lk-lt-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
+    <mask id="3270io-lt-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
       <rect width="128" height="128" fill="#fff"/>
       <g fill="#000">
       <path d="M44 58 56 68 44 78" fill="none" stroke="#000" stroke-width="7.5"
@@ -22,7 +21,7 @@
       <rect x="64" y="72" width="22" height="7" rx="3.5"/>
       </g>
     </mask>
-    <clipPath id="3270io-lk-lt-face-clip">
+    <clipPath id="3270io-lt-face-clip">
       <rect x="30" y="46" width="70" height="46" rx="11"/>
     </clipPath>
   </defs>
@@ -31,19 +30,13 @@
   <rect x="38" y="26" width="54" height="46" rx="9" fill="#00875a" fill-opacity="0.2"/>
   <rect x="34" y="36" width="62" height="46" rx="10" fill="#00875a" fill-opacity="0.38"/>
 
-  <g filter="url(#3270io-lk-lt-glow)">
+  <g filter="url(#3270io-lt-glow)">
     <rect x="30" y="46" width="70" height="46" rx="11"
-          fill="url(#3270io-lk-lt-face)" mask="url(#3270io-lk-lt-cut)"/>
+          fill="url(#3270io-lt-face)" mask="url(#3270io-lt-cut)"/>
   </g>
 
   <!-- Specular sweep, clipped to the front face. -->
-  <g clip-path="url(#3270io-lk-lt-face-clip)">
-    <path d="M30 46h70v20L30 84Z" fill="url(#3270io-lk-lt-spec)"/>
+  <g clip-path="url(#3270io-lt-face-clip)">
+    <path d="M30 46h70v20L30 84Z" fill="url(#3270io-lt-spec)"/>
   </g>
-
-  </g>
-  <text y="76" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace"
-        font-size="54" text-rendering="geometricPrecision">
-    <tspan x="136" textLength="133.6" lengthAdjust="spacing" fill="#0b1a12" font-weight="700">3270</tspan><tspan textLength="100.19999999999999" lengthAdjust="spacing" fill="#00875a" font-weight="500">.io</tspan>
-  </text>
 </svg>
