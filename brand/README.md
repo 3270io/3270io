@@ -36,7 +36,7 @@ Each product directory carries the same set.
 | `*-mark-light.svg` | the same mark in the daylight accent, for a white or near-white ground |
 | `*-mark-themed.svg` | same drawing, reading `--accent` / `--accent-2` from the host page so it re-tints with the active palette |
 | `*-mark-mono.svg` | single colour via `currentColor`; for one-colour print, embroidery, or a favicon that must not carry a gradient |
-| `*-icon.svg` | the mark in a square frame — favicons and app icons |
+| `*-icon.svg` | the mark in a square frame, in the daylight accent — favicons and app icons |
 | `*-lockup.svg` | mark plus wordmark, for dark backgrounds |
 | `*-lockup-light.svg` | the same lockup with dark ink, for light backgrounds |
 | `*.ico` | multi-resolution favicon (16 → 256) |
@@ -55,11 +55,19 @@ second set for light grounds.
 |---|---|---|
 | every mark, on dark | `#4effb3` | `#7cf9d0` |
 | every mark, on light (`*-light.*`) | `#00875a` | `#00a76f` |
+| every icon (`*-icon.*`, `*.ico`) | `#00875a` | `#00a76f` |
 
 Phosphor is tuned for a dark terminal and washes out on white — `#4effb3` on
 `#ffffff` is about 1.4:1. The on-light pair is the daylight palette's accent,
 already part of the brand rather than a colour invented for the purpose, and it
 holds up around 4:1.
+
+The icons take the daylight accent whichever ground they land on, because they
+are the one part of the kit placed on a surface we do not own — a tab strip, a
+bookmark bar, a home screen, light or dark by the reader's choice. Most of those
+are white, where phosphor turns to a pale smudge at 16px; the daylight green
+keeps its edges there and still reads as the family green on a dark strip. Marks
+and lockups go somewhere we picked, so they keep the two-file split above.
 
 They deliberately do **not** track each product's own default palette. 3270Web's
 terminal defaults to `#39ff14`, but a mark that differs from its siblings reads

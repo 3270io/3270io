@@ -232,13 +232,22 @@ ${inner}
 /**
  * The mark in a square frame, for favicons and app icons — the plate window is
  * 96x88, so the extra 8 goes above to keep the glow's headroom below.
+ *
+ * The icon is the one member of the family that lands on a surface we do not
+ * own: a tab strip, a bookmark bar, a home screen, light or dark by the
+ * reader's choice and not ours. Phosphor is tuned for a dark terminal and goes
+ * milky against white chrome, which is where most tabs are read, so the icon
+ * carries the daylight accent — dark enough to hold its shape on white at ~4:1
+ * and still clearly the family green on a dark strip. The marks and lockups,
+ * which get placed against a ground we do choose, stay phosphor.
  */
 function icon(key) {
   const vb = viewBox(VARIANTS[key].fan).split(" ").map(Number)
-  return mark(key, { id: `${key}-icon` }).replace(
-    /viewBox="[^"]+"/,
-    `viewBox="${vb[0]} ${vb[1] - 8} 96 96"`,
-  )
+  return mark(key, {
+    id: `${key}-icon`,
+    accent: LIGHT.accent,
+    accent2: LIGHT.accent2,
+  }).replace(/viewBox="[^"]+"/, `viewBox="${vb[0]} ${vb[1] - 8} 96 96"`)
 }
 
 /* ------------------------------------------------------------------------ */
