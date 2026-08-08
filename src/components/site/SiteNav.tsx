@@ -4,7 +4,7 @@ import { THEMES, useTheme } from "@/hooks/use-theme"
 import { LogoMark, Wordmark } from "./Logo"
 
 const LINKS = [
-  { href: "#tools", label: "Tools" },
+  { href: "#tools", label: "Products" },
   { href: "#capabilities", label: "Capabilities" },
   { href: "#pipeline", label: "Pipeline" },
   { href: "#showcase", label: "Screenshots" },
@@ -35,7 +35,26 @@ export function SiteNav() {
   return (
     <header className="nav" data-stuck={stuck}>
       <div className="shell nav-inner">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="3270.io home">
+        {/* Mark and wordmark are one target: clicking either goes home. The
+            plain #top anchor landed on the hero section, which sits below the
+            sticky nav — this scrolls the document itself to the very top and
+            clears the fragment so the URL reads as home. */}
+        <a
+          href="#top"
+          className="flex items-center gap-2.5"
+          aria-label="3270.io home"
+          onClick={(event) => {
+            event.preventDefault()
+            setMenuOpen(false)
+            window.scrollTo({
+              top: 0,
+              behavior: window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+                ? "auto"
+                : "smooth",
+            })
+            history.replaceState(null, "", window.location.pathname)
+          }}
+        >
           <LogoMark size={28} className="text-[var(--text-2)]" />
           <Wordmark className="text-[1.02rem]" />
         </a>

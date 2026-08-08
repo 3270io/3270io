@@ -47,16 +47,21 @@ vector.
 
 ## Colour
 
-The marks are drawn from each product's own default accent, and the themed
-variants re-tint to whatever palette the host page is running.
+All three static marks are drawn in one green — the phosphor accent.
 
 | | accent | accent-2 |
 |---|---|---|
-| 3270.io, 3270Connect (phosphor) | `#4effb3` | `#7cf9d0` |
-| 3270Web (terminal green) | `#39ff14` | `#7cff3b` |
+| every mark | `#4effb3` | `#7cf9d0` |
 
-Both products ship the same four palettes — phosphor, amber, ice and daylight —
-and the in-app marks follow the active one, which is why the themed SVG exists.
+They deliberately do **not** track each product's own default palette. 3270Web's
+terminal defaults to `#39ff14`, but a mark that differs from its siblings reads
+as a different brand, most visibly in a row of browser tabs where the favicons
+sit next to each other. The glyph and the fan tell the three apart; colour is
+what says they are one family.
+
+Inside the products it is the other way round. Both ship the same four palettes
+— phosphor, amber, ice and daylight — and the in-app marks follow whichever is
+active, which is what `*-mark-themed.svg` is for.
 
 ## Using the mark
 

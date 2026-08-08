@@ -48,8 +48,12 @@ const VARIANTS = {
     label: "3270Web",
     /* Up and right. */
     fan: { dx: 11, dy: -7 },
-    accent: "#39ff14",
-    accent2: "#7cff3b",
+    /* The family green. 3270Web's own terminal default is #39ff14, but a mark
+       that differs from its siblings reads as a different brand — most visibly
+       in a row of browser tabs, where the favicons sit side by side. The in-app
+       mark still re-tints from the live theme; only the static kit is fixed. */
+    accent: "#4effb3",
+    accent2: "#7cf9d0",
     /* Mouse pointer: the 3270 screen, driven from a browser. A ring or globe
        would say "internet"; the cursor says "you click this one". */
     glyph: `

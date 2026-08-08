@@ -338,20 +338,31 @@ export const launchCards: LaunchCard[] = [
 ]
 
 export const heroStats = [
-  { value: "2", label: "Tools", note: "One shared workflow format" },
+  { value: "2", label: "Products", note: "Each useful on its own" },
   { value: "MIT", label: "Licence", note: "Open source since 2023" },
   { value: "Go", label: "Built in", note: "Single static binary" },
   { value: "0", label: "Runtime deps", note: "Console served from the binary" },
 ]
 
-export const bootLines: { text: string; tag?: string; tone?: "ok" | "info" }[] = [
-  { text: "3270Connect -config workflow.json -concurrent 25" },
-  { text: "resolving mvs.example.com:992", tag: "OK", tone: "ok" },
+/**
+ * The hero's live sequence. It runs the full arc — 3270Web discovering an
+ * application and being driven in English, then 3270Connect taking the workflow
+ * that fell out of it to load — so the panel doesn't read as a 3270Connect
+ * advert with 3270Web as its recorder. `cmd` marks a line as a command prompt.
+ */
+export const bootLines: {
+  text: string
+  tag?: string
+  tone?: "ok" | "info"
+  cmd?: boolean
+}[] = [
+  { text: "3270Web ▸ mvs.example.com:992", cmd: true },
   { text: "TN3270E negotiated · model 4 · 43x80", tag: "OK", tone: "ok" },
-  { text: "codepage cp037 · TLS 1.3", tag: "OK", tone: "ok" },
+  { text: "AI auto-navigation exploring the host", tag: "LIVE", tone: "info" },
+  { text: "34 screens mapped · 7 business functions", tag: "OK", tone: "ok" },
+  { text: '"look up account 1234" → 6 steps', tag: "OK", tone: "ok" },
+  { text: "workflow.json exported · full coverage", tag: "OK", tone: "ok" },
+  { text: "3270Connect -config workflow.json -concurrent 25", cmd: true },
   { text: "workers ramping 0 → 25", tag: "LIVE", tone: "info" },
-  { text: "step FillString  p95 0.21s", tag: "OK", tone: "ok" },
-  { text: "step CheckValue  p95 0.34s", tag: "OK", tone: "ok" },
   { text: "2,313 workflows completed · 97.1% success", tag: "OK", tone: "ok" },
-  { text: "metrics listening on :9091", tag: "LIVE", tone: "info" },
 ]
