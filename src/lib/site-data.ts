@@ -66,6 +66,7 @@ export const products: Product[] = [
           "API server mode for orchestration and load generation",
           "Host compatibility profiler emitting the shared CompatibilityProfile JSON",
           "RSA token injection and per-host EBCDIC code page selection",
+          "Model Context Protocol server for AI-driven load testing and result analysis",
         ],
       },
     ],
@@ -123,7 +124,7 @@ export const products: Product[] = [
     ],
     meta: [
       { label: "Language", value: "Go" },
-      { label: "Interfaces", value: "CLI · API · Console" },
+      { label: "Interfaces", value: "CLI · API · Console · MCP" },
       { label: "Runtime deps", value: "None" },
     ],
   },
@@ -158,6 +159,7 @@ export const products: Product[] = [
           "Your choice of AI: Copilot, Claude, OpenAI, Google AI, or self-hosted Ollama",
           "Full application screen coverage captured as it explores",
           "Exports 3270Connect workflow JSON for performance and volume testing",
+          "Model Context Protocol server, so Claude Desktop can drive a session directly",
         ],
       },
     ],
@@ -196,7 +198,7 @@ export const products: Product[] = [
     meta: [
       { label: "Language", value: "Go" },
       { label: "Ships as", value: "Docker · EXE · Binary" },
-      { label: "Interfaces", value: "Browser · REST · AI Chat" },
+      { label: "Interfaces", value: "Browser · REST · AI Chat · MCP" },
       { label: "AI providers", value: "Copilot · Claude · OpenAI · Google · Ollama" },
     ],
   },
@@ -215,6 +217,18 @@ export const capabilities: Capability[] = [
     title: "Conversational session control",
     body: "Type an instruction in plain language. The assistant reads the screen, proposes the next action, and either waits for your approval or runs hands-free in Auto Mode. Point it at GitHub Copilot, Claude, OpenAI, Google AI, or a model on your own hardware.",
     tag: "3270Web",
+  },
+  {
+    icon: "plug",
+    title: "Drive it from your AI client",
+    body: "Both tools speak the Model Context Protocol, so Claude Desktop and anything else that speaks MCP can drive them directly — navigate a green screen, turn chaos exploration loose, or run a load test and read the percentiles back. One line in a config file; no browser in the loop.",
+    tag: "Both",
+  },
+  {
+    icon: "puzzle",
+    title: "Skills you can write",
+    body: "The procedures the assistant follows are files, not prose baked into a build. Drop a folder beside the binary to teach it your transaction codes, which PF key is safe on a particular screen, or the load profile you sign releases off against — and ship a set of them to your team as an extension.",
+    tag: "Both",
   },
   {
     icon: "shuffle",
@@ -357,6 +371,9 @@ export const heroStats = [
  * application and being driven in English, then 3270Connect taking the workflow
  * that fell out of it to load — so the panel doesn't read as a 3270Connect
  * advert with 3270Web as its recorder. `cmd` marks a line as a command prompt.
+ *
+ * The MCP line sits between the two halves on purpose: it is the same arc,
+ * driven from somewhere other than the browser, rather than a third product.
  */
 export const bootLines: {
   text: string
@@ -369,8 +386,10 @@ export const bootLines: {
   { text: "AI auto-navigation exploring the host", tag: "LIVE", tone: "info" },
   { text: "34 screens mapped · 7 business functions", tag: "OK", tone: "ok" },
   { text: '"look up account 1234" → 6 steps', tag: "OK", tone: "ok" },
+  { text: "MCP · driving the same session from Claude Desktop", tag: "LIVE", tone: "info" },
   { text: "workflow.json exported · full coverage", tag: "OK", tone: "ok" },
   { text: "3270Connect -config workflow.json -concurrent 25", cmd: true },
   { text: "workers ramping 0 → 25", tag: "LIVE", tone: "info" },
   { text: "2,313 workflows completed · 97.1% success", tag: "OK", tone: "ok" },
+  { text: "p95 1.8s · p99 4.2s over 500 workflows", tag: "OK", tone: "ok" },
 ]
