@@ -1,0 +1,44 @@
+name: CI
+
+# Until this existed, nothing ran on a pull request: deploy-pages.yml only
+# triggers on push to main, so a type error or a broken build was discovered
+# by the deploy itself.
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Typecheck and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        # `npm run build` compiles with `tsc -b --noCheck`, so it emits happily
+        # with type errors present. This is the only step that actually reads
+        # the types.
+        run: npx tsc --noEmit
+
+      - name: Build
+        run: npm run build

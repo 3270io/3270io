@@ -87,7 +87,7 @@ profile for 3270Connect.
   - **Understand** — each screen annotated with its business purpose and field meanings, with named business functions catalogued like "Account inquiry"
   - **Operate in English** — "look up account 1234" drives the live session step by step, or emits a self-describing workflow JSON
   - **Record coverage** — full application screen coverage exported as 3270Connect-compatible `workflow.json` for performance and volume testing
-  - AI Chat side panel with per-action approval or hands-free Auto Mode, and a model selector across GitHub Copilot models
+  - AI Chat side panel with per-action approval or hands-free Auto Mode, backed by your choice of GitHub Copilot, Claude, OpenAI, Google AI, Ollama or any OpenAI-compatible endpoint
   - Chaos Mind-Map Compare API for diffing host divergence across environments
   - Host compatibility profiler API producing 3270Connect-compatible JSON
   - IBM 3270 terminal fonts (Regular, Semi-Condensed, Condensed) bundled with the app
