@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="17 22 96 88" fill="none" role="img" aria-label="3270.io">
+  <defs>
+    <mask id="3270io-mono-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
+      <rect width="128" height="128" fill="#fff"/>
+      <g fill="#000">
+      <path d="M44 58 56 68 44 78" fill="none" stroke="#000" stroke-width="7.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="64" y="72" width="22" height="7" rx="3.5"/>
+      </g>
+    </mask>
+  </defs>
+  <rect x="38" y="26" width="54" height="46" rx="9" fill="currentColor" fill-opacity="0.3"/>
+  <rect x="34" y="36" width="62" height="46" rx="10" fill="currentColor" fill-opacity="0.55"/>
+  <rect x="30" y="46" width="70" height="46" rx="11"
+        fill="currentColor" mask="url(#3270io-mono-cut)"/>
+</svg>

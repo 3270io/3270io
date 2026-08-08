@@ -1,20 +1,48 @@
-# 3270.io
+<img src="brand/assets/3270io/3270io-lockup-600.png" alt="3270.io" width="300">
 
 Mainframe 3270 automation and web tooling for modern engineering workflows.
+
+This repository is the landing page for [3270.io](https://3270.io) and the home
+of the shared brand kit. The two products it launches into have their own repos
+and their own MkDocs sites.
+
+## The brand
+
+<img src="brand/assets/3270io/3270io-mark-128.png" alt="3270.io" width="96">
+<img src="brand/assets/3270connect/3270connect-mark-128.png" alt="3270Connect" width="96">
+<img src="brand/assets/3270web/3270web-mark-128.png" alt="3270Web" width="96">
+
+One idea, three variants: **the session stack** — terminal screens receding in
+depth, one session recorded and replayed many times. The plate, the stack and
+the lighting model are shared; the fan direction and the glyph knocked out of
+the front face are what differ. 3270.io fans straight up with the bare prompt,
+3270Connect fans right with a doubled chevron, 3270Web fans up-right with a
+mouse pointer.
+
+Marks, lockups, favicons, the rules for using them, and the script that
+generates the whole set live in [`brand/`](brand/). Both products carry the same
+mark in their own UI, re-tinted from the active palette.
 
 ## Flagship Projects
 
 ### 3270Connect
-Repeatable scripted workflows to replicate human 3270 online integration at unlimited scale. Includes a web dashboard, API, and CLI for functional and non-functional testing of mainframe 3270 online applications.
 
-<img src="src/assets/images/3270Connect/3270Connect_dashboard.png" alt="3270Connect Dashboard" width="900" />
+<img src="brand/assets/3270connect/3270connect-lockup-600.png" alt="3270Connect" width="260">
+
+Repeatable scripted workflows that replicate human 3270 online integration at
+unlimited scale — a CLI, an API server, and a live operations console served
+straight from the binary, for functional and non-functional testing of mainframe
+3270 applications.
+
+<img src="src/assets/shots/connect/console-overview.webp" alt="3270Connect operations console" width="900" />
 
 - Docs: https://3270connect.3270.io
 - GitHub: https://github.com/3270io/3270Connect
 - Highlights:
   - Define and execute automated workflows via configuration files
+  - Operations console with live KPIs, latency percentiles, log streaming and per-process control
+  - Run workflows in parallel, with runtime windows, grace periods and per-workflow timeouts
   - Capture 3270 screen state for documentation and troubleshooting
-  - Run workflows in parallel for faster validation
   - Headless mode for CI/CD automation
   - API server for load testing and advanced orchestration
   - Prometheus `/metrics` endpoint for connect/step timing and live worker counts
@@ -22,44 +50,57 @@ Repeatable scripted workflows to replicate human 3270 online integration at unli
   - Hardened input handling: injection, filename, and path-traversal prevention
 
 ### 3270Web
-Web-based 3270 terminal interface in Go. Drive sessions with AI Chat — read screens, run chaos discovery, and map each screen's business purpose — then record and replay 3270Connect-compatible workflows.
 
-<img src="src/assets/images/3270Web/3270Web_sample.png" alt="3270Web Terminal" width="900" />
+<img src="brand/assets/3270web/3270web-lockup-600.png" alt="3270Web" width="240">
+
+An **enterprise-grade 3270 terminal in the browser** — no emulator install, no
+thick client — that also understands the application behind the screens. AI
+auto-navigation explores the host and maps it, which makes the application
+addressable in plain English and turns its full screen coverage into a load
+profile for 3270Connect.
+
+<img src="src/assets/shots/web/session.png" alt="3270Web browser terminal" width="900" />
 
 - Docs: https://3270web.3270.io
 - GitHub: https://github.com/3270io/3270Web
 - Highlights:
-  - Browser UI for interactive 3270 sessions with detailed logging
-  - Virtual keyboard support for full terminal interaction
-  - AI Chat side panel — drive 3270 sessions by conversation: read screens, write fields, and press keys, with per-action approval or hands-free Auto Mode
-  - Chat-driven chaos discovery — start, monitor, and export automated exploration runs and discovery reports without leaving the conversation
-  - Business understanding — the AI annotates each discovered screen's purpose and field meanings, then catalogs named business functions like "Account inquiry"
-  - Run business functions by prompt — e.g. "look up account 1234" drives the live session step by step or generates a self-describing workflow JSON
-  - AI Chat model selector — switch between GitHub Copilot models (default Claude Sonnet 4.6)
-  - Chaos mode for randomized session testing with screen-graph discovery reports
+  - Enterprise browser UI for interactive 3270 sessions, with virtual keyboard and detailed logging
+  - **Discover** — AI auto-navigation drives the host itself, mapping every screen and transition into a mind map
+  - **Understand** — each screen annotated with its business purpose and field meanings, with named business functions catalogued like "Account inquiry"
+  - **Operate in English** — "look up account 1234" drives the live session step by step, or emits a self-describing workflow JSON
+  - **Record coverage** — full application screen coverage exported as 3270Connect-compatible `workflow.json` for performance and volume testing
+  - AI Chat side panel with per-action approval or hands-free Auto Mode, and a model selector across GitHub Copilot models
   - Chaos Mind-Map Compare API for diffing host divergence across environments
   - Host compatibility profiler API producing 3270Connect-compatible JSON
   - IBM 3270 terminal fonts (Regular, Semi-Condensed, Condensed) bundled with the app
-  - Export sessions as `workflow.json` compatible with 3270Connect
-  - Load and replay `workflow.json` for repeatable flows
-  - Docker image and GHCR publishing workflow
+  - Hardened by default — CSP and security headers, origin/referer checks, CSRF validation, token-guarded REST API
+  - Multi-arch Docker image on GHCR, non-root user, `/healthz` liveness endpoint
 
 ## How They Work Together
 
-Use `3270Web` to interactively build and record terminal sessions, then run those same workflows at scale with `3270Connect` in local, CI/CD, or load-testing pipelines.
+```
+3270Web                                            3270Connect
+──────────────────────────────────────────         ─────────────────────
+browse  →  AI discovers  →  screen graph   ─┐
+                            + business fns  ├──→  workflow.json  →  concurrent
+run by prompt  ←────────────────────────────┘                       load / volume
+                                                                    / CI runs
+```
+
+Explore and record with `3270Web`, then run the same workflows at scale with
+`3270Connect` in local, CI/CD, or load-testing pipelines. They speak the same
+workflow JSON and emit the same host compatibility profile.
 
 ## Website Repo
 
-This repository contains the public landing page for 3270.io.
-
-This repository is the landing page for 3270.io — a launcher into the two
-projects. Anything that needs explaining in depth lives in each project's own
-MkDocs site, not here.
+The landing page is a launcher into the two projects. Anything that needs
+explaining in depth lives in each project's own MkDocs site, not here.
 
 - Stack: React, TypeScript, Vite, Tailwind CSS
 - App entry: `src/App.tsx`; sections in `src/components/site/`
 - Copy, screenshots and links: `src/lib/site-data.ts`
 - Design tokens and primitives: `src/styles/tokens.css`, `src/styles/site.css`
+- Brand marks: `src/components/site/Logo.tsx` (live, re-tinting) and `brand/` (static kit)
 - Product screenshots: `src/assets/shots/`
 
 The design tokens mirror the 3270Connect operations console, including its
@@ -70,7 +111,9 @@ share one visual language.
 
 ```bash
 npm install
-npm run dev
+npm run dev     # site on :5000
+npm run build   # production build into dist/
+npm run brand   # regenerate brand/assets (needs playwright, see brand/README.md)
 ```
 
 ## License

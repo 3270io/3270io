@@ -1,5 +1,6 @@
 import { pipeline } from "@/lib/site-data"
 import { DataIcon } from "./icons"
+import { ProductMark } from "./Logo"
 import { Reveal } from "./Reveal"
 import { SectionHead } from "./SectionHead"
 
@@ -44,15 +45,22 @@ export function Pipeline() {
                     </span>
                   </div>
 
-                  <span
-                    className="mt-5 grid size-10 place-items-center rounded-[var(--r-sm)]"
-                    style={{
-                      background: "var(--accent-soft)",
-                      border: "1px solid var(--line-strong)",
-                      color: "var(--accent)",
-                    }}
-                  >
-                    <DataIcon name={step.icon} size={20} />
+                  {/* Step icon on the left, the owning product's mark on the
+                      right. The mark lives here rather than beside the tool
+                      name above, where it squeezed the kicker onto two lines
+                      and knocked the card titles out of alignment. */}
+                  <span className="mt-5 flex items-center justify-between">
+                    <span
+                      className="grid size-10 place-items-center rounded-[var(--r-sm)]"
+                      style={{
+                        background: "var(--accent-soft)",
+                        border: "1px solid var(--line-strong)",
+                        color: "var(--accent)",
+                      }}
+                    >
+                      <DataIcon name={step.icon} size={20} />
+                    </span>
+                    <ProductMark product={step.tool} size={26} />
                   </span>
 
                   <h3 className="h3 mt-4">{step.title}</h3>

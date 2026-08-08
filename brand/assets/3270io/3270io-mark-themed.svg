@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="17 22 96 88" fill="none" role="img" aria-label="3270.io">
+  <defs>
+    <linearGradient id="3270io-face" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="var(--accent-2)"/>
+      <stop offset="1" stop-color="var(--accent)"/>
+    </linearGradient>
+    <linearGradient id="3270io-spec" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.26"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.03"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="3270io-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- flood-color ignores var() as an attribute but honours it as CSS. -->
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-opacity="0.45" style="flood-color:var(--accent)"/>
+    </filter>
+    <mask id="3270io-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="128" height="128">
+      <rect width="128" height="128" fill="#fff"/>
+      <g fill="#000">
+      <path d="M44 58 56 68 44 78" fill="none" stroke="#000" stroke-width="7.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="64" y="72" width="22" height="7" rx="3.5"/>
+      </g>
+    </mask>
+    <clipPath id="3270io-face-clip">
+      <rect x="30" y="46" width="70" height="46" rx="11"/>
+    </clipPath>
+  </defs>
+
+  <!-- Receding planes: the sessions behind the one in front. -->
+  <rect x="38" y="26" width="54" height="46" rx="9" fill="var(--accent)" fill-opacity="0.2"/>
+  <rect x="34" y="36" width="62" height="46" rx="10" fill="var(--accent)" fill-opacity="0.38"/>
+
+  <g filter="url(#3270io-glow)">
+    <rect x="30" y="46" width="70" height="46" rx="11"
+          fill="url(#3270io-face)" mask="url(#3270io-cut)"/>
+  </g>
+
+  <!-- Specular sweep, clipped to the front face. -->
+  <g clip-path="url(#3270io-face-clip)">
+    <path d="M30 46h70v20L30 84Z" fill="url(#3270io-spec)"/>
+  </g>
+</svg>
