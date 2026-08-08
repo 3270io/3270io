@@ -25,9 +25,9 @@ export function Pipeline() {
     <section className="section" id="pipeline">
       <div className="shell">
         <SectionHead
-          eyebrow="How it fits together"
+          eyebrow="Used together"
           title="Record once. Replay everywhere."
-          lede="A session you click through in the browser becomes a file you can commit, review and run on every build — and the same file drives a thousand parallel sessions when you need a load profile."
+          lede="Neither product needs the other, but this is what they do as a pair: a session you click through — or that AI maps for you — becomes a file you can commit, review and run on every build, and the same file drives a thousand parallel sessions when you need a load profile."
         />
 
         <div className="mt-12 grid grid-cols-1 items-stretch gap-4 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)]">

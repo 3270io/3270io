@@ -13,9 +13,9 @@ export function Products({ onOpenGallery }: ProductsProps) {
     <section className="section" id="tools">
       <div className="shell">
         <SectionHead
-          eyebrow="The tools"
-          title="Two halves of the same workflow"
-          lede="3270Web is where you explore and record. 3270Connect is where you replay, scale and measure. They speak the same JSON and emit the same host profile."
+          eyebrow="The products"
+          title="Two products, not two halves"
+          lede="3270Web is an enterprise 3270 terminal that discovers your application and lets you run it in natural language. 3270Connect executes workflows at scale and measures them. Adopt either on its own — they happen to speak the same JSON and emit the same host profile."
         />
 
         <div className="mt-12 flex flex-col gap-8 md:gap-12">

@@ -1,6 +1,7 @@
 import { ArrowRight, BookOpen, GithubLogo } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 import { bootLines, heroStats } from "@/lib/site-data"
+import { LogoMark } from "./Logo"
 import { Reveal } from "./Reveal"
 
 function prefersReducedMotion() {
@@ -29,7 +30,7 @@ function BootLog() {
       <div className="panel-head" style={{ background: "var(--surface-2)" }}>
         <span className="dot live" />
         <span className="mono text-[0.7rem] tracking-[0.14em] uppercase text-[var(--text-3)]">
-          session · load run
+          session · discover → replay
         </span>
         <span className="num ml-auto text-[0.7rem] text-[var(--text-3)]">25 workers</span>
       </div>
@@ -37,7 +38,7 @@ function BootLog() {
       <div className="term-body" aria-live="polite">
         {bootLines.slice(0, shown).map((line, index) => (
           <div className="term-line" key={line.text}>
-            <span className="sig">{index === 0 ? "$" : "›"}</span>
+            <span className="sig">{line.cmd ? "$" : "›"}</span>
             <span className="txt flex-1">{line.text}</span>
             {line.tag ? (
               <span className={`tag ${line.tone === "info" ? "info" : ""}`}>[{line.tag}]</span>
@@ -57,8 +58,8 @@ function BootLog() {
         style={{ borderTop: "1px solid var(--line)", background: "var(--line)" }}
       >
         {[
+          { label: "Screens mapped", value: "34" },
           { label: "Success", value: "97.1%" },
-          { label: "p95 step", value: "0.34s" },
           { label: "Completed", value: "2,313" },
         ].map((cell) => (
           <div key={cell.label} className="px-4 py-3" style={{ background: "var(--surface-2)" }}>
@@ -82,10 +83,13 @@ export function Hero() {
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-16">
           <div>
             <Reveal>
-              <span className="chip accent">
-                <span className="dot live" />
-                Open source · since 2023
-              </span>
+              <div className="flex flex-wrap items-center gap-4">
+                <LogoMark size={58} variant="3270io" title="3270.io" className="flex-none" />
+                <span className="chip accent">
+                  <span className="dot live" />
+                  Open source · since 2023
+                </span>
+              </div>
             </Reveal>
 
             <Reveal delay={60}>
@@ -96,16 +100,20 @@ export function Hero() {
 
             <Reveal delay={120}>
               <p className="lede mt-6 max-w-xl">
-                3270.io builds two open-source tools for IBM 3270 systems. Record a terminal
-                session in the browser, replay it headless at any scale, and watch every workflow
-                land on a live operations console — from one JSON file.
+                3270.io builds two open-source products for IBM 3270 systems.{" "}
+                <strong className="font-semibold text-[var(--text)]">3270Web</strong> puts an
+                enterprise terminal in a browser tab and uses AI to map the application behind
+                the screens, so it can be driven in plain English.{" "}
+                <strong className="font-semibold text-[var(--text)]">3270Connect</strong> replays
+                workflows headless at any scale, onto a live operations console. Each is useful on
+                its own; together they close the loop.
               </p>
             </Reveal>
 
             <Reveal delay={180}>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="#tools" className="btn primary">
-                  Explore the tools
+                  Explore the products
                   <ArrowRight size={15} weight="bold" />
                 </a>
                 <a
