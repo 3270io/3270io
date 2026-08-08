@@ -36,7 +36,7 @@ function BootLog() {
       </div>
 
       <div className="term-body" aria-live="polite">
-        {bootLines.slice(0, shown).map((line, index) => (
+        {bootLines.slice(0, shown).map((line) => (
           <div className="term-line" key={line.text}>
             <span className="sig">{line.cmd ? "$" : "›"}</span>
             <span className="txt flex-1">{line.text}</span>
