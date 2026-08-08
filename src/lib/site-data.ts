@@ -10,6 +10,7 @@ import themeDaylight from "@/assets/shots/connect/theme-daylight.webp"
 
 import webSession from "@/assets/shots/web/session.png"
 import webAiChat from "@/assets/shots/web/ai-chat.png"
+import webAiProvider from "@/assets/shots/web/ai-provider.png"
 import webConnect from "@/assets/shots/web/connect.png"
 import webSampleApp from "@/assets/shots/web/sample-app.png"
 
@@ -130,7 +131,7 @@ export const products: Product[] = [
     id: "3270Web",
     tagline: "Enterprise 3270 terminal that maps your application",
     summary:
-      "An enterprise-grade 3270 terminal in the browser — no emulator install, no thick client. AI auto-navigation explores the host and maps every screen, so the application becomes addressable in plain English and its full screen coverage becomes a load profile for 3270Connect.",
+      "An enterprise-grade 3270 terminal in the browser — no emulator install, no thick client. AI auto-navigation explores the host and maps every screen, so the application becomes addressable in plain English and its full screen coverage becomes a load profile for 3270Connect. Bring your own AI: GitHub Copilot, Claude, OpenAI, Google AI, or a model running on your own hardware.",
     docsUrl: "https://3270web.3270.io",
     githubUrl: "https://github.com/3270io/3270Web",
     pillars: [
@@ -154,6 +155,7 @@ export const products: Product[] = [
         title: "Operate & record",
         points: [
           "Run business functions by prompt — approval per action, or hands-free Auto Mode",
+          "Your choice of AI: Copilot, Claude, OpenAI, Google AI, or self-hosted Ollama",
           "Full application screen coverage captured as it explores",
           "Exports 3270Connect workflow JSON for performance and volume testing",
         ],
@@ -173,7 +175,12 @@ export const products: Product[] = [
       {
         src: webAiChat,
         alt: "3270Web AI Chat side panel with suggested prompts",
-        caption: "AI Chat — explain a screen, run chaos discovery, or ask for a business overview",
+        caption: "AI Chat — explain a screen, run chaos discovery, or ask for a business overview, on the AI provider of your choice",
+      },
+      {
+        src: webAiProvider,
+        alt: "3270Web AI provider dialog with Claude selected",
+        caption: "Bring your own AI — GitHub Copilot, Claude, OpenAI, Google AI, Ollama, or any OpenAI-compatible endpoint",
       },
       {
         src: webConnect,
@@ -190,6 +197,7 @@ export const products: Product[] = [
       { label: "Language", value: "Go" },
       { label: "Ships as", value: "Docker · EXE · Binary" },
       { label: "Interfaces", value: "Browser · REST · AI Chat" },
+      { label: "AI providers", value: "Copilot · Claude · OpenAI · Google · Ollama" },
     ],
   },
 ]
@@ -205,7 +213,7 @@ export const capabilities: Capability[] = [
   {
     icon: "robot",
     title: "Conversational session control",
-    body: "Type an instruction in plain language. The assistant reads the screen, proposes the next action, and either waits for your approval or runs hands-free in Auto Mode.",
+    body: "Type an instruction in plain language. The assistant reads the screen, proposes the next action, and either waits for your approval or runs hands-free in Auto Mode. Point it at GitHub Copilot, Claude, OpenAI, Google AI, or a model on your own hardware.",
     tag: "3270Web",
   },
   {
