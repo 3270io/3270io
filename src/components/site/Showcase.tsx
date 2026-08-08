@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { products, type ProductId } from "@/lib/site-data"
+import { ProductMark } from "./Logo"
 import { Reveal } from "./Reveal"
 import { SectionHead } from "./SectionHead"
 
@@ -30,6 +31,7 @@ export function Showcase({ onOpen }: ShowcaseProps) {
                   onClick={() => setActive(product.id)}
                   aria-pressed={active === product.id}
                 >
+                  <ProductMark product={product.id} size={15} />
                   {product.id}
                 </button>
               ))}

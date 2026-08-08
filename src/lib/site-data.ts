@@ -128,34 +128,34 @@ export const products: Product[] = [
   },
   {
     id: "3270Web",
-    tagline: "Browser terminal with an AI copilot",
+    tagline: "Enterprise 3270 terminal that maps your application",
     summary:
-      "A full 3270 terminal in the browser. Drive it by hand, by REST, or by conversation — the AI Chat panel reads screens, fills fields, presses keys and runs chaos discovery, then hands you a workflow that 3270Connect can replay.",
+      "An enterprise-grade 3270 terminal in the browser — no emulator install, no thick client. AI auto-navigation explores the host and maps every screen, so the application becomes addressable in plain English and its full screen coverage becomes a load profile for 3270Connect.",
     docsUrl: "https://3270web.3270.io",
     githubUrl: "https://github.com/3270io/3270Web",
     pillars: [
       {
-        title: "Operate",
+        title: "Terminal",
         points: [
-          "Interactive 3270 sessions with virtual keyboard, print screen and detailed logging",
-          "Full terminal settings — model, size, TLS, emulation and theme",
-          "Three bundled IBM 3270 fonts: Regular, Semi-Condensed and Condensed",
+          "Enterprise 3270 sessions in a browser tab — nothing to install on the desktop",
+          "Virtual keyboard, print screen, detailed logging, and full model/size/TLS control",
+          "Hardened by default: CSP, origin checks, CSRF and token-guarded REST",
         ],
       },
       {
-        title: "Converse",
+        title: "Discover",
         points: [
-          "AI Chat side panel drives the live session with per-action approval or hands-free Auto Mode",
-          "Business understanding — screens annotated with purpose, fields and named business functions",
-          "Model selector across GitHub Copilot models",
+          "AI auto-navigation drives the host itself and maps every screen and transition",
+          "Each screen annotated with its business purpose, fields and named business functions",
+          "Mind-map compare diffs host divergence across environments",
         ],
       },
       {
-        title: "Explore & export",
+        title: "Operate & record",
         points: [
-          "Chaos mode explores the host automatically and reports a screen graph",
-          "Chaos Mind-Map Compare diffs host divergence across environments",
-          "Record to workflow.json, replay it, or drive the whole session over REST",
+          "Run business functions by prompt — approval per action, or hands-free Auto Mode",
+          "Full application screen coverage captured as it explores",
+          "Exports 3270Connect workflow JSON for performance and volume testing",
         ],
       },
     ],

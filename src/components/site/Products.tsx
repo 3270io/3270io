@@ -1,5 +1,6 @@
 import { ArrowUpRight, BookOpen, GithubLogo, Images } from "@phosphor-icons/react"
 import { products, type ProductId } from "@/lib/site-data"
+import { ProductMark } from "./Logo"
 import { Reveal } from "./Reveal"
 import { SectionHead } from "./SectionHead"
 
@@ -25,6 +26,7 @@ export function Products({ onOpenGallery }: ProductsProps) {
                   {/* Copy column */}
                   <div className="order-2 p-6 md:p-9 lg:order-1">
                     <div className="flex flex-wrap items-center gap-3">
+                      <ProductMark product={product.id} size={38} className="flex-none" />
                       <h3 className="mono text-[1.5rem] font-bold tracking-tight text-[var(--text)] md:text-[1.75rem]">
                         {product.id}
                       </h3>
@@ -120,7 +122,8 @@ export function Products({ onOpenGallery }: ProductsProps) {
                           <i />
                           <i />
                           <i />
-                          <span className="mono ml-2 truncate text-[0.65rem] tracking-[0.12em] uppercase text-[var(--text-3)]">
+                          <ProductMark product={product.id} size={13} className="ml-2 flex-none" />
+                          <span className="mono truncate text-[0.65rem] tracking-[0.12em] uppercase text-[var(--text-3)]">
                             {product.id}
                           </span>
                         </span>
