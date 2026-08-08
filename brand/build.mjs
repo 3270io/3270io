@@ -18,6 +18,17 @@ const OUT = process.argv[2] ?? join(dirname(fileURLToPath(import.meta.url)), "as
    by 8 units of width per step and offset along the variant's fan vector. */
 const FACE = { x: 30, y: 46, w: 70, h: 46, r: 11 }
 
+/**
+ * The on-light accent, for a mark placed on a white or near-white ground —
+ * a README on github.com, a light doc site, print.
+ *
+ * Phosphor green is tuned for a dark terminal and washes out badly on white:
+ * #4effb3 on #ffffff is about 1.4:1. These are the daylight palette's accents,
+ * already part of the brand, and they hold up at ~4:1 — so this is picking an
+ * existing light-mode colour rather than inventing one.
+ */
+const LIGHT = { accent: "#00875a", accent2: "#00a76f" }
+
 const VARIANTS = {
   "3270io": {
     label: "3270.io",
@@ -190,7 +201,12 @@ function lockup(key, opts = {}) {
   const v = VARIANTS[key]
   const [head, tail] =
     key === "3270io" ? ["3270", ".io"] : ["3270", key === "3270web" ? "Web" : "Connect"]
-  const inner = mark(key, { id: `${key}-lk` })
+  /* On a light ground both halves have to change, not just the ink: the mark
+     re-tints to the daylight accent and the wordmark's tail follows it, or the
+     ".io" stays a pale mint that all but disappears on white. */
+  const accent = opts.onLight ? LIGHT.accent : v.accent
+  const accent2 = opts.onLight ? LIGHT.accent2 : v.accent2
+  const inner = mark(key, { id: `${key}-lk${opts.onLight ? "-lt" : ""}`, accent, accent2 })
     .replace(/^<svg[^>]*>\n/, "")
     .replace(/<\/svg>\n?$/, "")
   const vb = viewBox(v.fan).split(" ").map(Number)
@@ -207,7 +223,7 @@ ${inner}
   </g>
   <text y="76" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace"
         font-size="54" text-rendering="geometricPrecision">
-    <tspan x="${textX}" textLength="${adv(head)}" lengthAdjust="spacing" fill="${ink}" font-weight="700">${head}</tspan><tspan textLength="${adv(tail)}" lengthAdjust="spacing" fill="${v.accent}" font-weight="500">${tail}</tspan>
+    <tspan x="${textX}" textLength="${adv(head)}" lengthAdjust="spacing" fill="${ink}" font-weight="700">${head}</tspan><tspan textLength="${adv(tail)}" lengthAdjust="spacing" fill="${accent}" font-weight="500">${tail}</tspan>
   </text>
 </svg>
 `
@@ -293,6 +309,13 @@ for (const key of Object.keys(VARIANTS)) {
       accent2: "var(--accent-2)",
     }),
     [`${key}-icon.svg`]: icon(key),
+    /* On-light: the daylight accent, for a white or near-white ground. */
+    [`${key}-mark-light.svg`]: mark(key, {
+      id: `${key}-lt`,
+      size: 512,
+      accent: LIGHT.accent,
+      accent2: LIGHT.accent2,
+    }),
     [`${key}-lockup.svg`]: lockup(key),
     [`${key}-lockup-light.svg`]: lockup(key, { onLight: true }),
   }
@@ -301,6 +324,10 @@ for (const key of Object.keys(VARIANTS)) {
   const markRatio = ratioOf(svgs[`${key}-mark.svg`])
   for (const s of MARK_PNG) {
     put(`${key}-mark-${s}.png`, await raster(svgs[`${key}-mark.svg`], s, s * markRatio))
+    put(
+      `${key}-mark-light-${s}.png`,
+      await raster(svgs[`${key}-mark-light.svg`], s, s * markRatio),
+    )
   }
   for (const s of ICON_PNG) {
     put(`${key}-icon-${s}.png`, await raster(svgs[`${key}-icon.svg`], s, s))
