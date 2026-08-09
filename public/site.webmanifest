@@ -1,0 +1,17 @@
+{
+  "id": "/",
+  "name": "3270.io — Open source IBM 3270 mainframe tooling",
+  "short_name": "3270.io",
+  "description": "Two open-source tools for IBM 3270 mainframe systems: 3270Web, a browser terminal with AI Chat, chaos discovery and session recording; and 3270Connect, which replays those workflows headless and at scale.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "en",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ],
+  "theme_color": "#03110d",
+  "background_color": "#03110d"
+}

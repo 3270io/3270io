@@ -1,0 +1,15 @@
+# 3270.io
+#
+# The landing page is public in full and there is nothing to hold back. The file
+# exists so crawlers get a 200 and a sitemap pointer rather than a 404 from the
+# SPA fallback, which some of them treat as "no rules could be fetched" and back
+# off from.
+#
+# The documentation sites are separate origins (3270web.3270.io and
+# 3270connect.3270.io) and carry their own robots.txt — a rule written here
+# would not apply to them.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://3270.io/sitemap.xml
