@@ -138,6 +138,22 @@ npm run build   # production build into dist/
 npm run brand   # regenerate brand/assets (needs playwright, see brand/README.md)
 ```
 
+## Acknowledgements
+
+Neither 3270Connect nor 3270Web speaks TN3270 itself. Both drive
+[**s3270**](https://x3270.miraheze.org/wiki/Main_Page), the scripting member of
+the **x3270** family of 3270 terminal emulators — three decades of faithful
+protocol work by Paul Mattes and the x3270 contributors, given away for anyone
+to build on. Neither of our tools would exist without it. Our thanks to them.
+
+s3270 is distributed under a
+[BSD 3-Clause licence](https://github.com/pmattes/x3270/blob/master/LICENSE.md).
+Its full text is reproduced in the third-party notices of the projects that
+redistribute it:
+[3270Connect](https://github.com/3270io/3270Connect/blob/main/THIRD-PARTY-NOTICES.md)
+and [3270Web](https://github.com/3270io/3270Web/blob/main/THIRD-PARTY-NOTICES.md).
+The site carries the same credit in its footer (`src/components/site/SiteFooter.tsx`).
+
 ## License
 
 MIT. See `LICENSE`.

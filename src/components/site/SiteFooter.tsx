@@ -1,3 +1,4 @@
+import type { ReactNode } from "react"
 import { GithubLogo } from "@phosphor-icons/react"
 import { LogoMark, Wordmark } from "./Logo"
 
@@ -27,9 +28,23 @@ const COLUMNS = [
       { label: "Organisation", href: "https://github.com/3270io" },
       { label: "Website source", href: "https://github.com/3270io/3270io" },
       { label: "Security policy", href: "https://github.com/3270io/3270io/blob/main/SECURITY.md" },
+      { label: "Built on x3270", href: "https://x3270.miraheze.org/wiki/Main_Page" },
     ],
   },
 ]
+
+function FootnoteLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[var(--accent)] underline underline-offset-2 transition-opacity hover:opacity-80"
+    >
+      {children}
+    </a>
+  )
+}
 
 export function SiteFooter() {
   return (
@@ -79,7 +94,36 @@ export function SiteFooter() {
 
         <hr className="rule my-10" />
 
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <section className="panel p-5 md:p-6" aria-labelledby="built-on-x3270">
+          <h2 id="built-on-x3270" className="eyebrow">
+            Built on x3270
+          </h2>
+          <p className="mt-3 max-w-3xl text-[0.86rem] leading-relaxed text-[var(--text-2)]">
+            Neither 3270Connect nor 3270Web speaks TN3270 itself. Both drive{" "}
+            <FootnoteLink href="https://x3270.miraheze.org/wiki/Main_Page">s3270</FootnoteLink>, the
+            scripting member of the x3270 family of 3270 terminal emulators. Three decades of
+            faithful protocol work — EBCDIC code pages, field attributes, structured fields — by
+            Paul Mattes and the x3270 contributors, given away for anyone to build on. Neither of
+            our tools would exist without it, and our thanks go to them.
+          </p>
+          <p className="mt-3 max-w-3xl text-[0.8rem] leading-relaxed text-[var(--text-3)]">
+            s3270 is distributed under a{" "}
+            <FootnoteLink href="https://github.com/pmattes/x3270/blob/master/LICENSE.md">
+              BSD 3-Clause licence
+            </FootnoteLink>
+            ; its full text is reproduced in the third-party notices for{" "}
+            <FootnoteLink href="https://github.com/3270io/3270Connect/blob/main/THIRD-PARTY-NOTICES.md">
+              3270Connect
+            </FootnoteLink>{" "}
+            and{" "}
+            <FootnoteLink href="https://github.com/3270io/3270Web/blob/main/THIRD-PARTY-NOTICES.md">
+              3270Web
+            </FootnoteLink>
+            . The x3270 authors do not endorse these projects — this is attribution, and gratitude.
+          </p>
+        </section>
+
+        <div className="mt-10 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <p className="mono text-[0.7rem] tracking-[0.1em] uppercase text-[var(--text-3)]">
             © {new Date().getFullYear()} 3270.io · MIT licensed
           </p>
