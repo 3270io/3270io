@@ -147,12 +147,18 @@ protocol work by Paul Mattes and the x3270 contributors, given away for anyone
 to build on. Neither of our tools would exist without it. Our thanks to them.
 
 s3270 is distributed under a
-[BSD 3-Clause licence](https://github.com/pmattes/x3270/blob/master/LICENSE.md).
-Its full text is reproduced in the third-party notices of the projects that
-redistribute it:
-[3270Connect](https://github.com/3270io/3270Connect/blob/main/THIRD-PARTY-NOTICES.md)
-and [3270Web](https://github.com/3270io/3270Web/blob/main/THIRD-PARTY-NOTICES.md).
-The site carries the same credit in its footer (`src/components/site/SiteFooter.tsx`).
+[BSD 3-Clause licence](https://github.com/pmattes/x3270/blob/master/LICENSE.md),
+reproduced in [`THIRD-PARTY-LICENSES.md`](THIRD-PARTY-LICENSES.md) along with
+the licences of the site's own bundled dependencies. This repository ships no
+s3270 itself; the projects that redistribute the binary carry the same text —
+[3270Connect](https://github.com/3270io/3270Connect/blob/main/THIRD-PARTY-LICENSES.md)
+and [3270Web](https://github.com/3270io/3270Web/blob/main/THIRD-PARTY-LICENSES.md).
+The site carries the credit in its footer (`src/components/site/SiteFooter.tsx`).
+
+The licence's third clause reserves the x3270 authors' names for endorsement
+and promotion. Nothing here is offered as an endorsement — they have no
+involvement in these projects. Naming them states what the software uses, and
+thanks them for it.
 
 ## License
 

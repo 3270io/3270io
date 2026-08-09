@@ -28,7 +28,7 @@ const COLUMNS = [
       { label: "Organisation", href: "https://github.com/3270io" },
       { label: "Website source", href: "https://github.com/3270io/3270io" },
       { label: "Security policy", href: "https://github.com/3270io/3270io/blob/main/SECURITY.md" },
-      { label: "Built on x3270", href: "https://x3270.miraheze.org/wiki/Main_Page" },
+      { label: "Acknowledgements", href: "#acknowledgements" },
     ],
   },
 ]
@@ -79,8 +79,9 @@ export function SiteFooter() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...(link.href.startsWith("#")
+                        ? {}
+                        : { target: "_blank", rel: "noopener noreferrer" })}
                       className="text-[0.86rem] text-[var(--text-2)] transition-colors hover:text-[var(--accent)]"
                     >
                       {link.label}
@@ -94,32 +95,33 @@ export function SiteFooter() {
 
         <hr className="rule my-10" />
 
-        <section className="panel p-5 md:p-6" aria-labelledby="built-on-x3270">
-          <h2 id="built-on-x3270" className="eyebrow">
-            Built on x3270
+        <section className="panel p-5 md:p-6" aria-labelledby="acknowledgements">
+          <h2 id="acknowledgements" className="eyebrow">
+            Acknowledgements
           </h2>
           <p className="mt-3 max-w-3xl text-[0.86rem] leading-relaxed text-[var(--text-2)]">
-            Neither 3270Connect nor 3270Web speaks TN3270 itself. Both drive{" "}
+            Neither 3270Connect nor 3270Web speaks TN3270 itself. Both run{" "}
             <FootnoteLink href="https://x3270.miraheze.org/wiki/Main_Page">s3270</FootnoteLink>, the
-            scripting member of the x3270 family of 3270 terminal emulators. Three decades of
-            faithful protocol work — EBCDIC code pages, field attributes, structured fields — by
-            Paul Mattes and the x3270 contributors, given away for anyone to build on. Neither of
-            our tools would exist without it, and our thanks go to them.
+            scripting member of the x3270 family of 3270 terminal emulators, as a separate process.
+            Three decades of protocol work — EBCDIC code pages, field attributes, structured fields
+            — by Paul Mattes and the x3270 contributors, given away for anyone to build on. Our
+            thanks to them.
           </p>
           <p className="mt-3 max-w-3xl text-[0.8rem] leading-relaxed text-[var(--text-3)]">
             s3270 is distributed under a{" "}
             <FootnoteLink href="https://github.com/pmattes/x3270/blob/master/LICENSE.md">
               BSD 3-Clause licence
             </FootnoteLink>
-            ; its full text is reproduced in the third-party notices for{" "}
-            <FootnoteLink href="https://github.com/3270io/3270Connect/blob/main/THIRD-PARTY-NOTICES.md">
+            ; its full text is reproduced in the third-party licences for{" "}
+            <FootnoteLink href="https://github.com/3270io/3270Connect/blob/main/THIRD-PARTY-LICENSES.md">
               3270Connect
             </FootnoteLink>{" "}
             and{" "}
-            <FootnoteLink href="https://github.com/3270io/3270Web/blob/main/THIRD-PARTY-NOTICES.md">
+            <FootnoteLink href="https://github.com/3270io/3270Web/blob/main/THIRD-PARTY-LICENSES.md">
               3270Web
             </FootnoteLink>
-            . The x3270 authors do not endorse these projects — this is attribution, and gratitude.
+            . The above is a statement of what these tools use, and thanks for it. The x3270
+            authors have no involvement in these projects and do not endorse or promote them.
           </p>
         </section>
 
