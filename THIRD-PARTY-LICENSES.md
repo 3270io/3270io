@@ -76,6 +76,24 @@ endorsement. The x3270 authors have no involvement in 3270.io, 3270Connect or
 3270Web and have not reviewed, approved or promoted them. Naming them is a
 statement of what the software uses, and our thanks for it.
 
+## Vendored source
+
+Some files checked into this repository were not written for it.
+
+**shadcn/ui** — the 46 UI primitives in `src/components/ui/` (`button.tsx`,
+`dialog.tsx`, `sidebar.tsx` and the rest) were generated into this repository by
+the shadcn/ui CLI, as configured in `components.json`. shadcn/ui is distributed
+under the MIT licence, copyright (c) 2023 shadcn. They are vendored source
+rather than a dependency: they live in the repository, are edited in place, and
+so are not covered by the `package.json` table below.
+
+- Project: <https://ui.shadcn.com>
+- Source and licence: <https://github.com/shadcn-ui/ui/blob/main/LICENSE.md>
+
+This site was originally scaffolded from the GitHub Spark template, which is
+why `@github/spark` appears as a dependency and is imported by `src/main.tsx`.
+That package is MIT licensed and is covered in the dependency table below.
+
 ## Site dependencies
 
 The built site bundles the runtime dependencies below. All are permissive

@@ -1,6 +1,6 @@
 MIT License
 
-Copyright GitHub, Inc.
+Copyright (c) 2026 Paul Jennings
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+The MIT licence above covers this repository's own source code: the site in
+`src/`, the brand kit in `brand/`, and the configuration around them.
+
+Some files checked into this repository were not written for it and carry their
+own copyright — notably the UI primitives in `src/components/ui/`, which are
+vendored from shadcn/ui under its own MIT licence. The site's bundled runtime
+dependencies likewise remain under their own terms.
+
+Those components are recorded in THIRD-PARTY-LICENSES.md.

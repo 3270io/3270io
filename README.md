@@ -162,4 +162,9 @@ thanks them for it.
 
 ## License
 
-MIT. See `LICENSE`.
+MIT — see [`LICENSE`](LICENSE).
+
+That covers this repository's own source. The UI primitives vendored into
+`src/components/ui/` from shadcn/ui, and the site's bundled dependencies, stay
+under their own terms; those are recorded in
+[`THIRD-PARTY-LICENSES.md`](THIRD-PARTY-LICENSES.md).
