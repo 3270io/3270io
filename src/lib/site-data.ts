@@ -233,6 +233,12 @@ export const capabilities: Capability[] = [
     tag: "Both",
   },
   {
+    icon: "menu",
+    title: "Everyone signs in to their own mainframes",
+    body: "Assign published host profiles to teams, roles or named people. Somebody whose account reaches one system signs in and is on it. Somebody who reaches several meets a session manager — a real 3270 selection screen, so Enter, the PF keys and the cursor behave exactly as an operator expects, because the terminal is genuinely talking to one. Where an identity provider is configured, the teams come from the directory you already run.",
+    tag: "3270Web",
+  },
+  {
     icon: "frame",
     title: "Put the terminal in your own application",
     body: "Name the origins allowed to embed it and 3270Web renders inside your own portal without its own chrome, with a documented message channel so the page around it can read the screen and press keys. Or skip the frame entirely and draw the screen yourself from the JSON API. Nothing is opened until you name an origin.",
