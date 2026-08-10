@@ -167,14 +167,14 @@ export const products: Product[] = [
     ],
     hero: {
       src: webSession,
-      alt: "3270Web browser terminal showing a connected 3270 session",
-      caption: "A live 3270 session in the browser, with recording and chaos controls",
+      alt: "3270Web browser terminal showing a connected 3270 session under a single menu bar",
+      caption: "A live 3270 session in the browser — session, terminal and automation controls in one menu bar",
     },
     shots: [
       {
         src: webSession,
-        alt: "3270Web browser terminal showing a connected 3270 session",
-        caption: "A live 3270 session in the browser, with recording and chaos controls",
+        alt: "3270Web browser terminal showing a connected 3270 session under a single menu bar",
+        caption: "A live 3270 session in the browser — session, terminal and automation controls in one menu bar",
       },
       {
         src: webAiChat,
