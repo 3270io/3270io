@@ -7,7 +7,13 @@
 #
 # The documentation sites are separate origins (3270web.3270.io and
 # 3270connect.3270.io) and carry their own robots.txt — a rule written here
-# would not apply to them.
+# would not apply to them. They publish their own sitemaps too; a sitemap may
+# only list URLs under its own host, so ours does not repeat theirs.
+#
+# The sitemap holds one URL, because the site is one page: the product sections
+# are anchors on the landing page, not routes a crawler can fetch on its own.
+# Keep the notes here rather than in sitemap.xml — that file must contain
+# nothing but the urlset, and its <lastmod> wants bumping when the page changes.
 
 User-agent: *
 Allow: /

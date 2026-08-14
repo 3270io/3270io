@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  One URL, because the site is one page: the product sections are anchors on the
-  landing page, not routes a crawler can fetch on its own, and listing them here
-  would only add addresses that resolve back to the index.
-
-  The two documentation sites live on their own subdomains and publish their own
-  sitemaps (MkDocs generates one per build). A sitemap may only list URLs under
-  its own host, so they are deliberately not repeated here.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://3270.io/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-10</lastmod>
   </url>
 </urlset>
