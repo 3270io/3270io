@@ -4,6 +4,7 @@ import consoleProcesses from "@/assets/shots/connect/process-table.webp"
 import consolePalette from "@/assets/shots/connect/command-palette.webp"
 import consoleLogs from "@/assets/shots/connect/console-logs.webp"
 import consoleWorkflow from "@/assets/shots/connect/workflow-viewer.webp"
+import consoleTourPoster from "@/assets/shots/connect/console-tour.jpg"
 import themeAmber from "@/assets/shots/connect/theme-amber.webp"
 import themeIce from "@/assets/shots/connect/theme-ice.webp"
 import themeDaylight from "@/assets/shots/connect/theme-daylight.webp"
@@ -203,6 +204,52 @@ export const products: Product[] = [
       { label: "Interfaces", value: "Browser · Embed · REST · AI Chat · MCP" },
       { label: "AI providers", value: "Copilot · Claude · OpenAI · Google · Ollama" },
     ],
+  },
+]
+
+export interface ShowcaseVideo {
+  product: ProductId
+  title: string
+  caption: string
+  src: string
+  type: "video/mp4" | "video/webm"
+  poster: string
+  more: { label: string; href: string }
+}
+
+/**
+ * The flagship tour of each product. The files stay on each project's docs
+ * site — that is their canonical home, and this page should not carry
+ * megabytes of media in its own repository. Posters are bundled locally so
+ * the section always paints, and they keep `preload="none"` honest: nothing
+ * streams until someone presses play.
+ */
+export const showcaseVideos: ShowcaseVideo[] = [
+  {
+    product: "3270Web",
+    title: "3270Web in under a minute",
+    caption:
+      "Connect, sign on, work the screens, the command palette, and where the automation lives — recorded from a live session against the bundled sample application.",
+    src: "https://3270web.3270.io/videos/showcase-tour.webm",
+    type: "video/webm",
+    poster: webSession,
+    more: {
+      label: "All demonstration videos",
+      href: "https://3270web.3270.io/demo-videos/",
+    },
+  },
+  {
+    product: "3270Connect",
+    title: "The operations console at work",
+    caption:
+      "An eight-worker load run launched from the browser, then the process table, the live screen flow and the charts fill in.",
+    src: "https://3270connect.3270.io/assets/video/console-tour.mp4",
+    type: "video/mp4",
+    poster: consoleTourPoster,
+    more: {
+      label: "More walk-throughs",
+      href: "https://3270connect.3270.io/#see-it-work",
+    },
   },
 ]
 

@@ -9,6 +9,7 @@ import { Products } from "@/components/site/Products"
 import { Showcase } from "@/components/site/Showcase"
 import { SiteFooter } from "@/components/site/SiteFooter"
 import { SiteNav } from "@/components/site/SiteNav"
+import { Videos } from "@/components/site/Videos"
 
 function App() {
   const [galleryProduct, setGalleryProduct] = useState<ProductId | null>(null)
@@ -32,6 +33,7 @@ function App() {
       <main id="main">
         <Hero />
         <Products onOpenGallery={openGallery} />
+        <Videos />
         <Pipeline />
         <Capabilities />
         <Showcase onOpen={openGallery} />
