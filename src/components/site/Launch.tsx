@@ -10,7 +10,7 @@ export function Launch() {
         <SectionHead
           eyebrow="Get started"
           title="Pick a door"
-          lede="Both projects are MIT-licensed and self-hosted. Each one carries its own documentation — this is just the way in."
+          lede="Both projects are open source and self-hosted — 3270Connect under MIT, 3270Web under the AGPL. Each one carries its own documentation; this is just the way in."
           align="center"
         />
 
