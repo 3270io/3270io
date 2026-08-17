@@ -32,8 +32,8 @@ function App() {
 
       <main id="main">
         <Hero />
-        <Products onOpenGallery={openGallery} />
         <Videos />
+        <Products onOpenGallery={openGallery} />
         <Pipeline />
         <Capabilities />
         <Showcase onOpen={openGallery} />

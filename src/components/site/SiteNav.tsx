@@ -4,8 +4,8 @@ import { THEMES, useTheme } from "@/hooks/use-theme"
 import { LogoMark, Wordmark } from "./Logo"
 
 const LINKS = [
-  { href: "#tools", label: "Products" },
   { href: "#videos", label: "Videos" },
+  { href: "#tools", label: "Products" },
   { href: "#capabilities", label: "Capabilities" },
   { href: "#pipeline", label: "Pipeline" },
   { href: "#showcase", label: "Screenshots" },
