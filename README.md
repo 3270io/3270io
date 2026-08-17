@@ -9,6 +9,20 @@ This repository is the landing page for [3270.io](https://3270.io) and the home
 of the shared brand kit. The two products it launches into have their own repos
 and their own MkDocs sites.
 
+## Watch them work
+
+One tour per product, recorded from live sessions against the bundled sample
+applications — nothing is mocked:
+
+- **[▶ 3270Web in under a minute](https://3270web.3270.io/videos/showcase-tour.webm)** —
+  connect, sign on, work the screens, the command palette, and where the
+  automation lives.
+  [All demonstration videos →](https://3270web.3270.io/demo-videos/)
+- **[▶ The 3270Connect operations console at work](https://3270connect.3270.io/assets/video/console-tour.mp4)** —
+  an eight-worker load run launched from the browser, then the process table,
+  the live screen flow and the charts filling in.
+  [More walk-throughs →](https://3270connect.3270.io/#see-it-work)
+
 ## The brand
 
 <picture>
@@ -49,7 +63,7 @@ unlimited scale — a CLI, an API server, and a live operations console served
 straight from the binary, for functional and non-functional testing of mainframe
 3270 applications.
 
-<img src="src/assets/shots/connect/console-overview.webp" alt="3270Connect operations console" width="900" />
+<a href="https://3270connect.3270.io/assets/video/console-tour.mp4"><img src="src/assets/shots/connect/console-overview.webp" alt="3270Connect operations console — click to watch the video tour" width="900" /></a>
 
 - Docs: https://3270connect.3270.io
 - GitHub: https://github.com/3270io/3270Connect
@@ -77,7 +91,7 @@ auto-navigation explores the host and maps it, which makes the application
 addressable in plain English and turns its full screen coverage into a load
 profile for 3270Connect.
 
-<img src="src/assets/shots/web/session.png" alt="3270Web browser terminal" width="900" />
+<a href="https://3270web.3270.io/videos/showcase-tour.webm"><img src="src/assets/shots/web/session.png" alt="3270Web browser terminal — click to watch the video tour" width="900" /></a>
 
 - Docs: https://3270web.3270.io
 - GitHub: https://github.com/3270io/3270Web
