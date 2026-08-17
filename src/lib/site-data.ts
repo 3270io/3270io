@@ -240,7 +240,7 @@ export const showcaseVideos: ShowcaseVideo[] = [
   },
   {
     product: "3270Connect",
-    title: "The operations console at work",
+    title: "The 3270Connect operations console at work",
     caption:
       "An eight-worker load run launched from the browser, then the process table, the live screen flow and the charts fill in.",
     src: "https://3270connect.3270.io/assets/video/console-tour.mp4",

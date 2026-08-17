@@ -6,9 +6,12 @@ import { SectionHead } from "./SectionHead"
 
 /**
  * The two flagship tours, one per product, in the same window chrome the
- * screenshots use. The files stream from each project's docs site and
- * `preload="none"` means visiting this page costs nothing — the poster is
- * the only asset fetched until someone presses play.
+ * screenshots use. Each window is tagged with its product in the same mark +
+ * uppercase mono treatment the screenshot chrome uses, so a tour is
+ * attributable before it plays and without reading the caption. The files
+ * stream from each project's docs site and `preload="none"` means visiting
+ * this page costs nothing — the poster is the only asset fetched until
+ * someone presses play.
  */
 export function Videos() {
   return (
@@ -29,8 +32,8 @@ export function Videos() {
                     <i />
                     <i />
                     <i />
-                    <span className="mono ml-auto flex items-center gap-1.5 text-[0.66rem] tracking-[0.08em] text-[var(--text-3)]">
-                      <ProductMark product={video.product} size={13} />
+                    <span className="mono ml-auto flex items-center gap-1.5 text-[0.65rem] tracking-[0.12em] uppercase text-[var(--text-2)]">
+                      <ProductMark product={video.product} size={13} className="flex-none" />
                       {video.product}
                     </span>
                   </span>
