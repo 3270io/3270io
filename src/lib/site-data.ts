@@ -428,7 +428,7 @@ export const launchCards: LaunchCard[] = [
 
 export const heroStats = [
   { value: "2", label: "Products", note: "Each useful on its own" },
-  { value: "MIT", label: "Licence", note: "Open source since 2023" },
+  { value: "OSS", label: "Licence", note: "MIT and AGPL-3.0, since 2023" },
   { value: "Go", label: "Built in", note: "Single static binary" },
   { value: "0", label: "Runtime deps", note: "Console served from the binary" },
 ]
