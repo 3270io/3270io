@@ -3,6 +3,8 @@
   <img alt="3270.io" src="brand/assets/3270io/3270io-lockup-light-600.png" width="300">
 </picture>
 
+[![CI has the Zoomies](https://zoomies.sh/badge.svg)](https://zoomies.sh)
+
 Mainframe 3270 automation and web tooling for modern engineering workflows.
 
 This repository is the landing page for [3270.io](https://3270.io) and the home
