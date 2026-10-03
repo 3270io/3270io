@@ -13,7 +13,7 @@
 # The sitemap holds one URL, because the site is one page: the product sections
 # are anchors on the landing page, not routes a crawler can fetch on its own.
 # Keep the notes here rather than in sitemap.xml — that file must contain
-# nothing but the urlset, and its <lastmod> wants bumping when the page changes.
+# nothing but the urlset. The production build derives lastmod from content history.
 
 User-agent: *
 Allow: /

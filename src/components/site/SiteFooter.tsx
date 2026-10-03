@@ -1,3 +1,4 @@
+import facts from "@/lib/product-facts.json"
 import type { ReactNode } from "react"
 import { GithubLogo } from "@phosphor-icons/react"
 import { LogoMark, Wordmark } from "./Logo"
@@ -127,7 +128,7 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <p className="mono text-[0.7rem] tracking-[0.1em] uppercase text-[var(--text-3)]">
-            © {new Date().getFullYear()} 3270.io · 3270Connect MIT · 3270Web AGPL-3.0
+            © {new Date().getFullYear()} 3270.io · 3270Connect {facts["3270Connect"].licence} · 3270Web {facts["3270Web"].licence}
           </p>
           <p className="mono text-[0.7rem] tracking-[0.1em] text-[var(--text-3)]">
             “Where there’s legacy code, there’s opportunity.”

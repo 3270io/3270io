@@ -1,6 +1,7 @@
 import { useState } from "react"
 import type { ProductId } from "@/lib/site-data"
 import { Capabilities } from "@/components/site/Capabilities"
+import { Guides } from "@/components/site/Guides"
 import { Gallery } from "@/components/site/Gallery"
 import { Hero } from "@/components/site/Hero"
 import { Launch } from "@/components/site/Launch"
@@ -37,6 +38,7 @@ function App() {
         <Pipeline />
         <Capabilities />
         <Showcase onOpen={openGallery} />
+        <Guides />
         <Launch />
       </main>
 

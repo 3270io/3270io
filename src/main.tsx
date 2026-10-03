@@ -1,4 +1,4 @@
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import { ErrorBoundary } from "react-error-boundary";
 import "@github/spark/spark"
 
@@ -7,8 +7,12 @@ import { ErrorFallback } from './ErrorFallback.tsx'
 
 import "./main.css"
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!
+const app = (
   <ErrorBoundary FallbackComponent={ErrorFallback}>
     <App />
    </ErrorBoundary>
 )
+
+if (root.hasChildNodes()) hydrateRoot(root, app)
+else createRoot(root).render(app)

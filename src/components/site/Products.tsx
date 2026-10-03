@@ -129,6 +129,9 @@ export function Products({ onOpenGallery }: ProductsProps) {
                         </span>
                         <img
                           src={product.hero.src}
+                          width={product.hero.width} height={product.hero.height}
+                          srcSet={product.hero.srcSet}
+                          sizes="(min-width: 1024px) 50vw, 100vw"
                           alt={product.hero.alt}
                           loading="lazy"
                           decoding="async"

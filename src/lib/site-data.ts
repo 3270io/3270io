@@ -1,3 +1,4 @@
+import facts from "./product-facts.json"
 import consoleOverview from "@/assets/shots/connect/console-overview.webp"
 import consoleCharts from "@/assets/shots/connect/charts.webp"
 import consoleProcesses from "@/assets/shots/connect/process-table.webp"
@@ -9,16 +10,27 @@ import themeAmber from "@/assets/shots/connect/theme-amber.webp"
 import themeIce from "@/assets/shots/connect/theme-ice.webp"
 import themeDaylight from "@/assets/shots/connect/theme-daylight.webp"
 
-import webSession from "@/assets/shots/web/session.png"
-import webAiChat from "@/assets/shots/web/ai-chat.png"
-import webAiProvider from "@/assets/shots/web/ai-provider.png"
-import webConnect from "@/assets/shots/web/connect.png"
-import webSampleApp from "@/assets/shots/web/sample-app.png"
+import webSession from "@/assets/shots/web/session.webp"
+import webSessionSmall from "@/assets/shots/web/session-640.webp"
+import webSessionMedium from "@/assets/shots/web/session-1024.webp"
+import webAiChat from "@/assets/shots/web/ai-chat.webp"
+import webAiChatSmall from "@/assets/shots/web/ai-chat-640.webp"
+import webAiProvider from "@/assets/shots/web/ai-provider.webp"
+import webAiProviderSmall from "@/assets/shots/web/ai-provider-640.webp"
+import webConnect from "@/assets/shots/web/connect.webp"
+import webConnectSmall from "@/assets/shots/web/connect-640.webp"
+import webConnectMedium from "@/assets/shots/web/connect-1024.webp"
+import webSampleApp from "@/assets/shots/web/sample-app.webp"
+import webSampleAppSmall from "@/assets/shots/web/sample-app-640.webp"
+import webSampleAppMedium from "@/assets/shots/web/sample-app-1024.webp"
 
 export type ProductId = "3270Connect" | "3270Web"
 
 export interface Shot {
   src: string
+  width: number
+  height: number
+  srcSet?: string
   alt: string
   caption: string
 }
@@ -41,7 +53,7 @@ export const products: Product[] = [
     id: "3270Connect",
     tagline: "Automation, load and observability",
     summary:
-      "Scripted 3270 workflows that replay human online integration at unlimited scale — as a CLI, an API server, and a live operations console served straight from the binary.",
+      "Scripted 3270 workflows that replay human online integration with configurable concurrency — as a CLI, an API server, and a live operations console served straight from the binary.",
     docsUrl: "https://3270connect.3270.io",
     githubUrl: "https://github.com/3270io/3270Connect",
     pillars: [
@@ -73,52 +85,62 @@ export const products: Product[] = [
     ],
     hero: {
       src: consoleOverview,
+      width: 1200, height: 1218,
       alt: "3270Connect operations console showing KPI tiles, workflow duration chart and process table",
       caption: "Operations console — live KPIs, duration and resource charts, process intelligence",
     },
     shots: [
       {
         src: consoleOverview,
+      width: 1200, height: 1218,
         alt: "3270Connect operations console overview",
         caption: "Operations console — live KPIs, duration and resource charts, process intelligence",
       },
       {
         src: consoleCharts,
+      width: 1200, height: 645,
         alt: "Workflow duration and system resource charts",
         caption: "Workflow duration per process and host resource utilisation, side by side",
       },
       {
         src: consoleProcesses,
+      width: 1200, height: 277,
         alt: "Process intelligence table listing running workflow processes",
         caption: "Process intelligence — progress, outcomes and per-PID controls",
       },
       {
         src: consolePalette,
+      width: 1200, height: 570,
         alt: "Command palette open over the dashboard",
         caption: "Command palette — export, chart capture and log streaming from the keyboard",
       },
       {
         src: consoleLogs,
+      width: 1200, height: 750,
         alt: "Streaming console log viewer",
         caption: "Console logs — streamed, filtered and exportable",
       },
       {
         src: consoleWorkflow,
+      width: 1200, height: 750,
         alt: "Workflow viewer showing workflow JSON",
         caption: "Workflow viewer — inspect the JSON a process is running",
       },
       {
         src: themeAmber,
+      width: 1200, height: 720,
         alt: "Operations console in the amber CRT theme",
         caption: "Amber CRT theme",
       },
       {
         src: themeIce,
+      width: 1200, height: 720,
         alt: "Operations console in the ice theme",
         caption: "Ice theme",
       },
       {
         src: themeDaylight,
+      width: 1200, height: 720,
         alt: "Operations console in the daylight light theme",
         caption: "Daylight theme — the console in full light mode",
       },
@@ -168,32 +190,44 @@ export const products: Product[] = [
     ],
     hero: {
       src: webSession,
+      width: 2020, height: 1374,
+      srcSet: `${webSessionSmall} 640w, ${webSessionMedium} 1024w, ${webSession} 2020w`,
       alt: "3270Web browser terminal showing a connected 3270 session under a single menu bar",
       caption: "A live 3270 session in the browser — session, terminal and automation controls in one menu bar",
     },
     shots: [
       {
         src: webSession,
+      width: 2020, height: 1374,
+      srcSet: `${webSessionSmall} 640w, ${webSessionMedium} 1024w, ${webSession} 2020w`,
         alt: "3270Web browser terminal showing a connected 3270 session under a single menu bar",
         caption: "A live 3270 session in the browser — session, terminal and automation controls in one menu bar",
       },
       {
         src: webAiChat,
+      width: 760, height: 1440,
+      srcSet: `${webAiChatSmall} 640w, ${webAiChat} 760w`,
         alt: "3270Web AI Chat side panel with suggested prompts",
         caption: "AI Chat — explain a screen, run chaos discovery, or ask for a business overview, on the AI provider of your choice",
       },
       {
         src: webAiProvider,
+      width: 984, height: 1064,
+      srcSet: `${webAiProviderSmall} 640w, ${webAiProvider} 984w`,
         alt: "3270Web AI provider dialog with Claude selected",
         caption: "Bring your own AI — GitHub Copilot, Claude, OpenAI, Google AI, Ollama, or any OpenAI-compatible endpoint",
       },
       {
         src: webConnect,
+      width: 1984, height: 572,
+      srcSet: `${webConnectSmall} 640w, ${webConnectMedium} 1024w, ${webConnect} 1984w`,
         alt: "3270Web connect screen with hostname field",
         caption: "Connect to any TN3270 host, or start a bundled sample app",
       },
       {
         src: webSampleApp,
+      width: 1752, height: 1050,
+      srcSet: `${webSampleAppSmall} 640w, ${webSampleAppMedium} 1024w, ${webSampleApp} 1752w`,
         alt: "3270Web running the bundled sample 3270 application",
         caption: "Bundled sample applications for testing without a mainframe",
       },
@@ -258,90 +292,105 @@ export interface Capability {
   title: string
   body: string
   tag: ProductId | "Both"
+  guides?: { label: string; href: string }[]
 }
 
 export const capabilities: Capability[] = [
   {
     icon: "robot",
     title: "Conversational session control",
+    guides: [{"label": "Use AI Chat", "href": "https://3270web.3270.io/ai-chat/"}],
     body: "Type an instruction in plain language. The assistant reads the screen, proposes the next action, and either waits for your approval or runs hands-free in Auto Mode. Point it at GitHub Copilot, Claude, OpenAI, Google AI, or a model on your own hardware.",
     tag: "3270Web",
   },
   {
     icon: "plug",
     title: "Drive it from your AI client",
+    guides: [{"label": "3270Web MCP setup", "href": "https://3270web.3270.io/mcp/"}, {"label": "3270Connect MCP setup", "href": "https://3270connect.3270.io/mcp/"}],
     body: "Both tools speak the Model Context Protocol, so Claude Desktop and anything else that speaks MCP can drive them directly — navigate a green screen, turn chaos exploration loose, or run a load test and read the percentiles back. One line in a config file; no browser in the loop.",
     tag: "Both",
   },
   {
     icon: "puzzle",
     title: "Skills you can write",
+    guides: [{"label": "3270Web skills", "href": "https://3270web.3270.io/skills/"}, {"label": "3270Connect skills", "href": "https://3270connect.3270.io/skills/"}],
     body: "The procedures the assistant follows are files, not prose baked into a build. Drop a folder beside the binary to teach it your transaction codes, which PF key is safe on a particular screen, or the load profile you sign releases off against — and ship a set of them to your team as an extension.",
     tag: "Both",
   },
   {
     icon: "menu",
     title: "Everyone signs in to their own mainframes",
+    guides: [{"label": "Configure shared access", "href": "https://3270web.3270.io/multi-user/"}],
     body: "Assign published host profiles to teams, roles or named people. Somebody whose account reaches one system signs in and is on it. Somebody who reaches several meets a session manager — a real 3270 selection screen, so Enter, the PF keys and the cursor behave exactly as an operator expects, because the terminal is genuinely talking to one. Where an identity provider is configured, the teams come from the directory you already run.",
     tag: "3270Web",
   },
   {
     icon: "frame",
     title: "Put the terminal in your own application",
+    guides: [{"label": "Embed 3270Web", "href": "https://3270web.3270.io/embedding/"}],
     body: "Name the origins allowed to embed it and 3270Web renders inside your own portal without its own chrome, with a documented message channel so the page around it can read the screen and press keys. Or skip the frame entirely and draw the screen yourself from the JSON API. Nothing is opened until you name an origin.",
     tag: "3270Web",
   },
   {
     icon: "bridge",
     title: "The screen-scraper you already have still fits",
+    guides: [{"label": "Read the REST API reference", "href": "https://3270web.3270.io/rest-api/"}],
     body: "An HLLAPI-shaped endpoint: numbered functions, one-based presentation-space positions, and return codes where a program expects them. Code written years ago is ported by changing how it makes the call, not what it does — so a migration stops being a rewrite of every call site.",
     tag: "3270Web",
   },
   {
     icon: "shuffle",
     title: "Chaos exploration",
+    guides: [{"label": "Explore a host", "href": "https://3270web.3270.io/chaos-mode/"}],
     body: "Turn the explorer loose on an application. It walks the screen graph, persists each run, and exports a discovery report — plus workflow JSON for anything it finds.",
     tag: "3270Web",
   },
   {
     icon: "detective",
     title: "Business understanding",
+    guides: [{"label": "Create guided business tasks", "href": "https://3270web.3270.io/business-tasks/"}],
     body: "Discovered screens get annotated with their purpose and field meanings, then catalogued as named business functions such as account inquiry.",
     tag: "3270Web",
   },
   {
     icon: "tree",
     title: "Mind-map compare",
+    guides: [{"label": "Plan a migration comparison", "href": "https://3270web.3270.io/migration-testing/"}, {"label": "Compare API reference", "href": "https://3270web.3270.io/chaos-compare/"}],
     body: "Diff two exported chaos mind maps to see exactly where two hosts diverge — the migration-readiness check nobody wants to do by hand.",
     tag: "3270Web",
   },
   {
     icon: "gauge",
     title: "Prometheus metrics",
+    guides: [{"label": "Export Prometheus metrics", "href": "https://3270connect.3270.io/metrics/"}],
     body: "A load run shows up in your dashboards like any other service — connect and step timings, workflow outcomes and live worker count, on a listener of their own.",
     tag: "3270Connect",
   },
   {
     icon: "lightning",
     title: "Concurrency that ramps cleanly",
+    guides: [{"label": "Plan a load test", "href": "https://3270connect.3270.io/load-testing/"}],
     body: "Run hundreds of workflows in parallel for a fixed runtime, with grace periods for in-flight work and latency percentiles on the console.",
     tag: "3270Connect",
   },
   {
     icon: "chart",
     title: "Operations console",
+    guides: [{"label": "Use the operations console", "href": "https://3270connect.3270.io/dashboard/"}],
     body: "Live KPIs, duration and resource charts, a filterable process table, streaming logs and a command palette — served from the binary, no runtime dependencies.",
     tag: "3270Connect",
   },
   {
     icon: "shield",
     title: "Hardened by default",
+    guides: [{"label": "3270Web access controls", "href": "https://3270web.3270.io/multi-user/"}, {"label": "3270Connect accounts", "href": "https://3270connect.3270.io/authentication/"}],
     body: "Injection, filename and path-traversal prevention, CSRF and origin checks, token-gated APIs, and RSA token injection that keeps one-time passwords out of workflow files.",
     tag: "Both",
   },
   {
     icon: "package",
     title: "Same profile, both tools",
+    guides: [{"label": "Profile a host", "href": "https://3270connect.3270.io/host-profiler/"}],
     body: "The host compatibility profiler emits an identical CompatibilityProfile document from either tool, so cross-environment comparison is a plain JSON diff.",
     tag: "Both",
   },
@@ -353,6 +402,7 @@ export interface PipelineStep {
   title: string
   body: string
   tool: ProductId
+  guide: { label: string; href: string }
 }
 
 export const pipeline: PipelineStep[] = [
@@ -360,6 +410,7 @@ export const pipeline: PipelineStep[] = [
     icon: "terminal",
     kicker: "01 · Explore",
     title: "Open the host in a browser",
+    guide: { label: "Connect a host", href: "https://3270web.3270.io/configuration/" },
     body: "Connect 3270Web to a TN3270 host and click through the application — or let AI Chat and chaos mode map it for you.",
     tool: "3270Web",
   },
@@ -367,6 +418,7 @@ export const pipeline: PipelineStep[] = [
     icon: "record",
     kicker: "02 · Record",
     title: "Capture the session",
+    guide: { label: "Record and replay", href: "https://3270web.3270.io/workflow/" },
     body: "Recording turns what you did into workflow.json: connect, field writes, AID keys, checks and disconnect.",
     tool: "3270Web",
   },
@@ -374,6 +426,7 @@ export const pipeline: PipelineStep[] = [
     icon: "repeat",
     kicker: "03 · Replay",
     title: "Run it anywhere, at any scale",
+    guide: { label: "Run your workflow", href: "https://3270connect.3270.io/basic-usage/" },
     body: "3270Connect replays the same file from your laptop, a CI job, or a fleet of load generators — headless, concurrent, timed.",
     tool: "3270Connect",
   },
@@ -381,6 +434,7 @@ export const pipeline: PipelineStep[] = [
     icon: "chart",
     kicker: "04 · Observe",
     title: "Watch it in the console",
+    guide: { label: "Read the dashboard guide", href: "https://3270connect.3270.io/dashboard/" },
     body: "Live KPIs and latency percentiles on the operations console, and Prometheus metrics for everything long-running.",
     tool: "3270Connect",
   },
@@ -428,7 +482,7 @@ export const launchCards: LaunchCard[] = [
 
 export const heroStats = [
   { value: "2", label: "Products", note: "Each useful on its own" },
-  { value: "OSS", label: "Licence", note: "MIT and AGPL-3.0, since 2023" },
+  { value: "OSS", label: "Licence", note: `${facts["3270Connect"].licence} · ${facts["3270Web"].licence}` },
   { value: "Go", label: "Built in", note: "Single static binary" },
   { value: "0", label: "Runtime deps", note: "Console served from the binary" },
 ]
@@ -459,4 +513,12 @@ export const bootLines: {
   { text: "workers ramping 0 → 25", tag: "LIVE", tone: "info" },
   { text: "2,313 workflows completed · 97.1% success", tag: "OK", tone: "ok" },
   { text: "p95 1.8s · p99 4.2s over 500 workflows", tag: "OK", tone: "ok" },
+]
+
+export const practicalGuides: { title: string; description: string; href: string; product: ProductId }[] = [
+  { title: "Choose a browser terminal", description: "Try a sample host and evaluate deployment, shared access and costs.", href: "https://3270web.3270.io/browser-terminal/", product: "3270Web" },
+  { title: "Browser or desktop?", description: "Compare deployment and daily workflows before changing how your team connects.", href: "https://3270web.3270.io/browser-vs-desktop/", product: "3270Web" },
+  { title: "Run regression tests in CI", description: "Replay a recorded flow in GitHub Actions and check its actual result.", href: "https://3270connect.3270.io/github-actions/", product: "3270Connect" },
+  { title: "Plan a load test", description: "Control concurrency, validate outcomes and interpret latency and resource use.", href: "https://3270connect.3270.io/load-testing/", product: "3270Connect" },
+  { title: "Compare migration screen flows", description: "Align two environments, investigate screen-map changes and replay business outcomes.", href: "https://3270web.3270.io/migration-testing/", product: "3270Web" },
 ]

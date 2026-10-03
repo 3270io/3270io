@@ -81,6 +81,9 @@ export function Gallery({ product, index, onIndexChange, onClose }: GalleryProps
         <img
           key={shot.src}
           src={shot.src}
+                          width={shot.width} height={shot.height}
+                          srcSet={shot.srcSet}
+                          sizes="100vw"
           alt={shot.alt}
           className="max-h-full max-w-full rounded-[var(--r-md)] object-contain"
           style={{ border: "1px solid var(--line)", boxShadow: "var(--shadow-3)" }}
@@ -127,6 +130,8 @@ export function Gallery({ product, index, onIndexChange, onClose }: GalleryProps
               >
                 <img
                   src={thumb.src}
+                  width={thumb.width} height={thumb.height}
+                  srcSet={thumb.srcSet} sizes="64px"
                   alt=""
                   className="h-full w-full object-cover"
                   loading="lazy"

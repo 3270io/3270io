@@ -621,8 +621,8 @@ a { color: inherit; text-decoration: none; }
    ========================================================================== */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
+  opacity: 1;
+  transform: none;
   transition: opacity var(--dur-3) var(--ease-out), transform var(--dur-3) var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
 }

@@ -1,0 +1,20 @@
+{
+  "3270Web": {
+    "name": "3270Web",
+    "url": "https://3270web.3270.io/",
+    "licence": "AGPL-3.0-or-later",
+    "licenceUrl": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "licenceGuide": "https://3270web.3270.io/licence/",
+    "operatingSystem": "Linux, Windows, macOS, Docker",
+    "description": "A self-hosted browser-based IBM 3270 terminal with AI-assisted discovery, session recording and a REST API."
+  },
+  "3270Connect": {
+    "name": "3270Connect",
+    "url": "https://3270connect.3270.io/",
+    "licence": "MIT",
+    "licenceUrl": "https://opensource.org/licenses/MIT",
+    "licenceGuide": "https://3270connect.3270.io/LICENSE/",
+    "operatingSystem": "Linux, Windows, Docker",
+    "description": "A self-hosted IBM 3270 workflow runner for headless CI and concurrent load testing, with an operations console and Prometheus metrics."
+  }
+}

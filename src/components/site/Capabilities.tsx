@@ -35,6 +35,14 @@ export function Capabilities() {
                 <p className="mt-2.5 text-[0.88rem] leading-relaxed text-[var(--text-2)]">
                   {capability.body}
                 </p>
+                <div className="mt-5 flex flex-wrap gap-x-4 gap-y-3">
+                  {capability.guides?.map(guide => (
+                    <a key={guide.href} href={guide.href} target="_blank" rel="noopener noreferrer"
+                      className="text-[0.85rem] font-medium text-[var(--accent)] underline underline-offset-4">
+                      {guide.label} <span aria-hidden="true">↗</span>
+                    </a>
+                  ))}
+                </div>
               </article>
             </Reveal>
           ))}

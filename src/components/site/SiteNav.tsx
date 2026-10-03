@@ -1,4 +1,4 @@
-import { GithubLogo, List, X } from "@phosphor-icons/react"
+import { GithubLogo, List } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 import { THEMES, useTheme } from "@/hooks/use-theme"
 import { LogoMark, Wordmark } from "./Logo"
@@ -9,13 +9,13 @@ const LINKS = [
   { href: "#capabilities", label: "Capabilities" },
   { href: "#pipeline", label: "Pipeline" },
   { href: "#showcase", label: "Screenshots" },
+  { href: "#guides", label: "Guides" },
   { href: "#start", label: "Get started" },
 ]
 
 export function SiteNav() {
   const { theme, setTheme } = useTheme()
   const [stuck, setStuck] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setStuck(window.scrollY > 8)
@@ -24,14 +24,6 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  useEffect(() => {
-    if (!menuOpen) return
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false)
-    }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [menuOpen])
 
   return (
     <header className="nav" data-stuck={stuck}>
@@ -46,7 +38,6 @@ export function SiteNav() {
           aria-label="3270.io home"
           onClick={(event) => {
             event.preventDefault()
-            setMenuOpen(false)
             window.scrollTo({
               top: 0,
               behavior: window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
@@ -97,52 +88,32 @@ export function SiteNav() {
             <span className="hidden md:inline">GitHub</span>
           </a>
 
-          <button
-            type="button"
-            className="btn sm icon lg:hidden"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-nav"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-          >
-            {menuOpen ? <X size={16} weight="bold" /> : <List size={16} weight="bold" />}
-          </button>
+          <details className="lg:hidden">
+            <summary className="btn sm icon cursor-pointer list-none" aria-label="Toggle menu">
+              <List size={16} weight="bold" />
+            </summary>
+            <div className="absolute left-0 top-full w-full border-b border-[var(--line)] bg-[var(--bg)] px-6 pb-5 shadow-lg">
+              <nav className="flex flex-col gap-1 pt-3" aria-label="Primary, mobile">
+                {LINKS.map(link => (
+                  <a key={link.href} href={link.href} className="nav-link"
+                    onClick={event => event.currentTarget.closest("details")?.removeAttribute("open")}>
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+              <div className="segmented mt-3 sm:hidden" role="group" aria-label="Colour theme">
+                {THEMES.map(entry => (
+                  <button key={entry.id} type="button" onClick={() => setTheme(entry.id)}
+                    aria-pressed={theme === entry.id} title={entry.label}>
+                    {entry.short}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
-      {menuOpen ? (
-        <div
-          id="mobile-nav"
-          className="shell pb-4 lg:hidden"
-          style={{ borderTop: "1px solid var(--line)" }}
-        >
-          <nav className="flex flex-col gap-1 pt-3" aria-label="Primary, mobile">
-            {LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="nav-link"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <div className="segmented mt-3 sm:hidden" role="group" aria-label="Colour theme">
-            {THEMES.map((entry) => (
-              <button
-                key={entry.id}
-                type="button"
-                onClick={() => setTheme(entry.id)}
-                aria-pressed={theme === entry.id}
-                title={entry.label}
-              >
-                {entry.short}
-              </button>
-            ))}
-          </div>
-        </div>
-      ) : null}
     </header>
   )
 }

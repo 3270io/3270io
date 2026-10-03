@@ -5,13 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>3270.io — Open source IBM 3270 mainframe tooling</title>
-    <!-- A result row shows roughly 160 characters and discards the rest, so
-         this says what the two tools are and stops. The longer pitch — which
-         AI providers, the console, the metrics — is on the page itself and in
-         the keywords below, where length costs nothing. -->
-    <meta name="description" content="Two open-source tools for IBM 3270 mainframes: 3270Web, a browser terminal with AI Chat and chaos discovery, and 3270Connect, which replays workflows at scale." />
-    <meta name="keywords" content="mainframe, 3270, terminal emulation, TN3270, IBM mainframe, automated testing, workflow automation, 3270Connect, 3270Web, open source, legacy systems, CI/CD integration, host compatibility profiler, prometheus metrics, chaos mode, chaos compare, chaos discovery, ai chat, ai copilot, github copilot, claude, anthropic, openai, google gemini, ollama, self-hosted llm, openai-compatible api, business discovery, ibm 3270 fonts" />
+    <title>3270.io — Open-source 3270 terminal and mainframe testing</title>
+    <meta name="description" content="Use 3270Web for browser-based TN3270 sessions and 3270Connect for workflow replay and load testing. Self-hosted tools for mainframe developers and testers." />
     <meta name="author" content="3270.io" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#03110d" />
@@ -24,15 +19,11 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://3270.io/" />
-    <meta property="og:title" content="3270.io — Open source IBM 3270 mainframe tooling" />
-    <meta property="og:description" content="Record a 3270 session in the browser, replay it headless at any scale, and watch every workflow land on a live operations console. Two open-source tools: 3270Web and 3270Connect." />
+    <meta property="og:title" content="3270.io — Open-source 3270 terminal and mainframe testing" />
+    <meta property="og:description" content="Record a 3270 session in the browser, replay it headless with controlled concurrency, and watch every workflow land on a live operations console. Two open-source tools: 3270Web and 3270Connect." />
     <meta property="og:image" content="https://3270.io/OGImage.png" />
     <meta property="og:image:secure_url" content="https://3270.io/OGImage.png" />
     <meta property="og:image:type" content="image/png" />
-    <!-- The file is 2400x1260 so it stays crisp on a retina phone, but the tags
-         declare the 1200x630 it is laid out at. Without them a client cannot
-         reserve the large-card slot until the bytes land, and some fall back to
-         the small square card instead. -->
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="3270.io — drive the mainframe like modern infrastructure" />
@@ -41,14 +32,14 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://3270.io/" />
-    <meta name="twitter:title" content="3270.io — Open source IBM 3270 mainframe tooling" />
-    <meta name="twitter:description" content="Record a 3270 session in the browser, replay it headless at any scale, and watch every workflow land on a live operations console." />
+    <meta name="twitter:title" content="3270.io — Open-source 3270 terminal and mainframe testing" />
+    <meta name="twitter:description" content="Record a 3270 session in the browser, replay it headless with controlled concurrency, and watch every workflow land on a live operations console." />
     <meta name="twitter:image" content="https://3270.io/OGImage.png" />
     <meta name="twitter:image:alt" content="3270.io — drive the mainframe like modern infrastructure" />
     <meta name="twitter:site" content="@3270io" />
     <meta name="twitter:creator" content="@3270io" />
 
-    <meta itemprop="name" content="3270.io — Open source IBM 3270 mainframe tooling" />
+    <meta itemprop="name" content="3270.io — Open-source 3270 terminal and mainframe testing" />
     <meta itemprop="description" content="Open-source IBM 3270 terminal emulation, AI-assisted exploration and automated workflow replay for mainframe applications." />
     <meta itemprop="image" content="https://3270.io/OGImage.png" />
 
@@ -75,101 +66,12 @@
         })();
     </script>
 
-    <!--
-      Structured data, as one @graph rather than three separate blocks so the
-      nodes can reference each other by @id: the site is published by the
-      organisation, and both tools name it as their publisher. A crawler reading
-      three disconnected blocks has to guess that they describe the same thing.
-
-      Both tools are described as SoftwareApplication with a zero-cost Offer —
-      that is what makes them eligible for the software result treatment, and
-      "free" is a fact about the licence, not a marketing claim.
-    -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Organization",
-                "@id": "https://3270.io/#organization",
-                "name": "3270.io",
-                "url": "https://3270.io/",
-                "logo": "https://3270.io/icon-512.png",
-                "description": "Open-source tooling for IBM 3270 mainframe systems.",
-                "sameAs": [
-                    "https://github.com/3270io",
-                    "https://linkedin.com/company/3270io",
-                    "https://x.com/3270io"
-                ]
-            },
-            {
-                "@type": "WebSite",
-                "@id": "https://3270.io/#website",
-                "name": "3270.io",
-                "url": "https://3270.io/",
-                "description": "Open-source IBM 3270 terminal emulation, AI-assisted exploration and automated workflow replay for mainframe applications.",
-                "inLanguage": "en",
-                "publisher": { "@id": "https://3270.io/#organization" }
-            },
-            {
-                "@type": "SoftwareApplication",
-                "name": "3270Web",
-                "url": "https://3270web.3270.io/",
-                "applicationCategory": "DeveloperApplication",
-                "operatingSystem": "Linux, Windows, macOS, Docker",
-                "description": "A browser-based IBM 3270 terminal: connect to any TN3270 host with no emulator install, with AI Chat, chaos exploration, session recording and a REST API.",
-                "license": "https://opensource.org/licenses/MIT",
-                "publisher": { "@id": "https://3270.io/#organization" },
-                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-            },
-            {
-                "@type": "SoftwareApplication",
-                "name": "3270Connect",
-                "url": "https://3270connect.3270.io/",
-                "applicationCategory": "DeveloperApplication",
-                "operatingSystem": "Linux, Windows, Docker",
-                "description": "Replays recorded 3270 sessions as JSON workflows — headless in CI, fanned out across concurrent workers, with a live operations console and Prometheus metrics.",
-                "license": "https://opensource.org/licenses/MIT",
-                "publisher": { "@id": "https://3270.io/#organization" },
-                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-            }
-        ]
-    }
-    </script>
+    <!-- Structured data is generated from src/lib/product-facts.json. -->
+    <!--product-schema-->
 </head>
 
 <body>
     <div id="root"></div>
-    <!--
-      The page is client-rendered: with scripting off, #root stays empty and
-      there is nothing at all for a reader — or for a crawler that does not
-      execute JavaScript — to go on. This is that floor, and the links are the
-      part that matters: they are how the two documentation sites are reachable
-      without running React.
-    -->
-    <noscript>
-        <h1>3270.io — open source IBM 3270 mainframe tooling</h1>
-        <p>
-            Record a 3270 session in the browser, replay it headless at any
-            scale, and watch every workflow land on a live operations console.
-        </p>
-        <ul>
-            <li>
-                <a href="https://3270web.3270.io/">3270Web</a> — a browser-based
-                IBM 3270 terminal with AI Chat, chaos exploration, session
-                recording and a REST API.
-            </li>
-            <li>
-                <a href="https://3270connect.3270.io/">3270Connect</a> — replays
-                recorded sessions as JSON workflows, headless in CI and across
-                concurrent workers, with Prometheus metrics.
-            </li>
-            <li>
-                <a href="https://github.com/3270io">Source on GitHub</a> — both
-                tools are MIT licensed.
-            </li>
-        </ul>
-    </noscript>
     <script type="module" src="/src/main.tsx"></script>
 </body>
 
