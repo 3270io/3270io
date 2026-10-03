@@ -56,6 +56,9 @@ export function Showcase({ onOpen }: ShowcaseProps) {
                   </span>
                   <img
                     src={shot.src}
+                          width={shot.width} height={shot.height}
+                          srcSet={shot.srcSet}
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     alt={shot.alt}
                     loading="lazy"
                     decoding="async"

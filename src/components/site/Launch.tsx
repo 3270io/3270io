@@ -1,3 +1,4 @@
+import facts from "@/lib/product-facts.json"
 import { ArrowUpRight } from "@phosphor-icons/react"
 import { launchCards } from "@/lib/site-data"
 import { Reveal } from "./Reveal"
@@ -10,7 +11,7 @@ export function Launch() {
         <SectionHead
           eyebrow="Get started"
           title="Pick a door"
-          lede="Both projects are open source and self-hosted — 3270Connect under MIT, 3270Web under the AGPL. Each one carries its own documentation; this is just the way in."
+          lede={`Both projects are open source and self-hosted — 3270Connect under ${facts["3270Connect"].licence}, 3270Web under ${facts["3270Web"].licence}. Each one carries its own documentation; this is just the way in.`}
           align="center"
         />
 

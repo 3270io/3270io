@@ -67,6 +67,10 @@ export function Pipeline() {
                   <p className="mt-2.5 text-[0.86rem] leading-relaxed text-[var(--text-2)]">
                     {step.body}
                   </p>
+                  <a href={step.guide.href} target="_blank" rel="noopener noreferrer"
+                    className="mt-5 inline-block text-[0.85rem] font-medium text-[var(--accent)] underline underline-offset-4">
+                    {step.guide.label} <span aria-hidden="true">↗</span>
+                  </a>
                 </article>
               </Reveal>
               {index < pipeline.length - 1 ? <Arrow /> : null}

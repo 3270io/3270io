@@ -134,7 +134,7 @@ workflow JSON and emit the same host compatibility profile.
 The landing page is a launcher into the two projects. Anything that needs
 explaining in depth lives in each project's own MkDocs site, not here.
 
-- Stack: React, TypeScript, Vite, Tailwind CSS
+- Stack: React, TypeScript, Vite, Tailwind CSS; the production homepage is statically rendered and hydrated for interactive controls.
 - App entry: `src/App.tsx`; sections in `src/components/site/`
 - Copy, screenshots and links: `src/lib/site-data.ts`
 - Design tokens and primitives: `src/styles/tokens.css`, `src/styles/site.css`
@@ -150,7 +150,8 @@ share one visual language.
 ```bash
 npm install
 npm run dev     # site on :5000
-npm run build   # production build into dist/
+npm run build   # client build + static homepage, sitemap and llms.txt into dist/
+npm run images  # regenerate responsive WebP screenshots from PNG originals
 npm run brand   # regenerate brand/assets (needs playwright, see brand/README.md)
 ```
 
@@ -184,3 +185,20 @@ That covers this repository's own source. The UI primitives vendored into
 `src/components/ui/` from shadcn/ui, and the site's bundled dependencies, stay
 under their own terms; those are recorded in
 [`THIRD-PARTY-LICENSES.md`](THIRD-PARTY-LICENSES.md).
+
+## Search and rendering checks
+
+The build renders `src/App.tsx` into the initial HTML through
+`src/entry-server.tsx`. Keep initial state deterministic across server and
+client; read browser storage after hydration. Product licence facts in
+`src/lib/product-facts.json` feed visible copy, JSON-LD and `llms.txt`.
+The sitemap's modification date comes from the last content commit, rather
+than the time a deployment happens. Essential text stays visible without
+JavaScript; animations enhance an already readable page.
+
+`npm run build` checks static HTML, asset references, product/schema facts and
+hydration, including a persisted theme and gallery interaction. The temporary
+server bundle stays outside `dist` and is removed after the build.
+
+Task guides remain on the owning product's MkDocs site. Deploy the documentation
+updates adding the linked guides before this landing-page update.

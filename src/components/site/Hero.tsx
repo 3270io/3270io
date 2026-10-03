@@ -1,3 +1,4 @@
+import facts from "@/lib/product-facts.json"
 import { ArrowRight, BookOpen, GithubLogo } from "@phosphor-icons/react"
 import { useEffect, useState } from "react"
 import { bootLines, heroStats } from "@/lib/site-data"
@@ -15,10 +16,14 @@ function prefersReducedMotion() {
  *  sequence was the best part of it, so it lives here instead — running
  *  inside the hero while the rest of the page stays readable. */
 function BootLog() {
-  const [shown, setShown] = useState(() => (prefersReducedMotion() ? bootLines.length : 0))
+  const [shown, setShown] = useState(bootLines.length)
 
   useEffect(() => {
-    if (shown >= bootLines.length) return
+    if (!prefersReducedMotion()) setShown(0)
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion() || shown >= bootLines.length) return
     const timer = setTimeout(() => setShown((count) => count + 1), shown === 0 ? 260 : 420)
     return () => clearTimeout(timer)
   }, [shown])
@@ -94,21 +99,28 @@ export function Hero() {
 
             <Reveal delay={60}>
               <h1 className="display mt-6">
-                Drive the mainframe like <span className="grad-text">modern infrastructure</span>.
+                A browser terminal. <span className="grad-text">Automated mainframe testing</span>.
               </h1>
             </Reveal>
 
             <Reveal delay={120}>
               <p className="lede mt-6 max-w-xl">
-                3270.io builds two open-source products for IBM 3270 systems.{" "}
+                Open-source IBM 3270 tools for mainframe developers, testers and operators.{" "}
                 <strong className="font-semibold text-[var(--text)]">3270Web</strong> puts an
                 enterprise terminal in a browser tab and uses AI to map the application behind
                 the screens, so it can be driven in plain English.{" "}
                 <strong className="font-semibold text-[var(--text)]">3270Connect</strong> replays
-                workflows headless at any scale, onto a live operations console. Each is useful on
+                workflows headless for CI and concurrent load testing, onto a live operations console. Each is useful on
                 its own; together they close the loop.
               </p>
             </Reveal>
+
+            <p className="mt-4 max-w-xl text-[0.85rem] leading-relaxed text-[var(--text-2)]">
+              Self-hosted software: 3270Connect uses {facts["3270Connect"].licence}; 3270Web uses {facts["3270Web"].licence}.
+              Your infrastructure and optional AI-provider charges are separate.{" "}
+              <a href={facts["3270Web"].licenceGuide} target="_blank" rel="noopener noreferrer"
+                className="text-[var(--accent)] underline underline-offset-4">3270Web licensing options</a>.
+            </p>
 
             <Reveal delay={180}>
               <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -117,13 +129,13 @@ export function Hero() {
                   <ArrowRight size={15} weight="bold" />
                 </a>
                 <a
-                  href="https://3270connect.3270.io"
+                  href="#start"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn"
                 >
                   <BookOpen size={15} weight="bold" />
-                  Documentation
+                  Choose your tool
                 </a>
                 <a
                   href="https://github.com/3270io"

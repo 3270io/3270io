@@ -33,8 +33,12 @@ function cookieDomain() {
 }
 
 function readCookie(): string | null {
-  const match = document.cookie.match(/(?:^|;\s*)3270io_theme=([^;]+)/)
-  return match ? decodeURIComponent(match[1]) : null
+  try {
+    const match = document.cookie.match(/(?:^|;\s*)3270io_theme=([^;]+)/)
+    return match ? decodeURIComponent(match[1]) : null
+  } catch {
+    return null
+  }
 }
 
 function writeCookie(theme: ThemeId) {
@@ -62,13 +66,16 @@ function readStored(): ThemeId {
 }
 
 export function useTheme() {
-  const [theme, setThemeState] = useState<ThemeId>(readStored)
+  const [theme, setThemeState] = useState<ThemeId>("phosphor")
 
   useEffect(() => {
-    apply(theme)
-  }, [theme])
+    const stored = readStored()
+    setThemeState(stored)
+    apply(stored)
+  }, [])
 
   const setTheme = useCallback((next: ThemeId) => {
+    apply(next)
     setThemeState(next)
     writeCookie(next)
     try {

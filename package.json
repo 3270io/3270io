@@ -6,8 +6,9 @@
     "scripts": {
         "dev": "vite",
         "kill": "fuser -k 5000/tcp",
-        "build": "tsc -b --noCheck && vite build",
-    "brand": "node brand/build.mjs",
+        "build": "tsc -b --noCheck && vite build && node scripts/prerender.mjs",
+        "images": "node scripts/optimize-images.mjs",
+        "brand": "node brand/build.mjs",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist --cname 3270.io --nojekyll",
         "lint": "eslint .",
@@ -91,7 +92,9 @@
         "tailwindcss": "^4.1.11",
         "typescript": "~5.7.2",
         "typescript-eslint": "^8.38.0",
-        "vite": "^7.3.1"
+        "vite": "^7.3.1",
+        "jsdom": "^26.1.0",
+        "sharp": "^0.35.5"
     },
     "workspaces": {
         "packages": [

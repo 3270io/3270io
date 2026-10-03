@@ -11,6 +11,7 @@ export default tseslint.config(
   {
     ignores: [
       "dist",
+      ".prerender",
       "node_modules",
       // Generated from brand/assets by `npm run brand`.
       "public/brand",
@@ -35,6 +36,8 @@ export default tseslint.config(
     },
   },
 
+  { files: ["src/entry-server.tsx"], rules: { "react-refresh/only-export-components": "off" } },
+
   // src/components/ui is shadcn/ui scaffolding: vendored, regenerated from
   // upstream rather than hand-maintained, and not something a pull request
   // should be blocked on. Kept in scope so real breakage still shows up, but
@@ -49,7 +52,7 @@ export default tseslint.config(
 
   // Build and tooling scripts run in Node, not the browser.
   {
-    files: ["*.{js,mjs}", "brand/**/*.mjs"],
+    files: ["*.{js,mjs}", "brand/**/*.mjs", "scripts/**/*.mjs"],
     extends: [js.configs.recommended],
     languageOptions: {
       ecmaVersion: 2022,
