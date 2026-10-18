@@ -4,8 +4,16 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    # Minor and patch updates arrive as one pull request; majors stay separate.
+    groups:
+      npm-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
 
   - package-ecosystem: "devcontainers"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      devcontainers:
+        patterns: ["*"]
